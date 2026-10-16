@@ -1,191 +1,2626 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html class="scroll-smooth" lang="en">
 
-        <link rel="stylesheet" href="assets/css/styles.css">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Keerthi — Front-End Developer & UI Designer</title>
 
-        <!-- =====BOX ICONS===== -->
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+  <!-- Google Fonts: Space Grotesk, Hanken Grotesk & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
 
-        <title>Portfolio website complete</title>
-    </head>
-    <body>
-        <!--===== HEADER =====-->
-        <header class="l-header">
-            <nav class="nav bd-grid">
-                <div>
-                    <a href="#" class="nav__logo">Keerthi</a>
-                </div>
+  <!-- Material Symbols Outlined -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
 
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
-                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
-                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
-                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
-                    </ul>
-                </div>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class='bx bx-menu'></i>
-                </div>
-            </nav>
-        </header>
+  <!-- Tailwind Configuration for #DC95FF Luminous Violet / Lilac Theme -->
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            canvas: "#0a090d",
+            surface: "#120f17",
+            "surface-card": "#16131c",
+            "surface-card-hover": "#1d1926",
+            "card-border": "#282133",
+            "card-border-hover": "rgba(220, 149, 255, 0.45)",
+            primary: "#dc95ff",
+            "primary-hover": "#c075ea",
+            "primary-glow": "rgba(220, 149, 255, 0.35)",
+            accent: "#e9b8ff",
+            "accent-violet": "#b868ff",
+            "text-primary": "#fafafa",
+            "text-secondary": "#a8a0b2",
+            "text-muted": "#736b7f",
+            "tag-bg": "#21182b",
+            "tag-border": "#3b284c"
+          },
+          fontFamily: {
+            display: ["Space Grotesk", "sans-serif"],
+            headline: ["Space Grotesk", "sans-serif"],
+            body: ["Hanken Grotesk", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          },
+          maxWidth: {
+            "max-container": "76rem"
+          }
+        }
+      }
+    }
+  </script>
 
-        <main class="l-main">
-            <!--===== HOME =====-->
-            <section class="home bd-grid" id="home">
-                <div class="home__data">
-                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Keerthi</span><br> Web Designer</h1>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
 
-                    <a href="#" class="button">Contact</a>
-                </div>
+    /* Subtle geometric grid background with #DC95FF tint */
+    .bg-grid-subtle {
+      background-size: 32px 32px;
+      background-image:
+        linear-gradient(to right, rgba(220, 149, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(220, 149, 255, 0.035) 1px, transparent 1px);
+    }
 
-                <div class="home__social">
-                    <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-behance' ></i></a>
-                    <a href="" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-                </div>
+    .neon-glow {
+      box-shadow: 0 0 25px -4px rgba(220, 149, 255, 0.38);
+    }
 
-                <div class="home__img">
-                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <mask id="mask0" mask-type="alpha">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                        </mask>
-                        <g mask="url(#mask0)">
-                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                            <image class="home__blob-img" x="50" y="60" href="assets/img/perfil.png"/>
-                        </g>
-                    </svg>
-                </div>
-            </section>
+    .neon-glow-sm {
+      box-shadow: 0 0 12px -2px rgba(220, 149, 255, 0.45);
+    }
 
-            <!--===== ABOUT =====-->
-            <section class="about section " id="about">
-                <h2 class="section-title">About</h2>
+    /* ========================================================================= */
+    /* 1. HERO SECTION CREATIVE ANIMATIONS                                       */
+    /* ========================================================================= */
 
-                <div class="about__container bd-grid">
-                    <div class="about__img">
-                        <img src="assets/img/img1.webp" alt="">
-                    </div>
-                    
-                    <div>
-                        <h2 class="about__subtitle">I'am Keerthi</h2>
-                        <p class="about__text">A front-end developer specializing in HTML, CSS, and React. I’m passionate about creating clean, responsive websites and dynamic web applications. With experience in building seamless user interfaces, I focus on combining design with functionality to deliver great user experiences.</p>           
-                    </div>                                   
-                </div>
-            </section>
+    /* Hero Canvas Background */
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-            <!--===== SKILLS =====-->
-            <section class="skills section" id="skills">
-                <h2 class="section-title">Skills</h2>
+    /* Ambient Floating Gradient Orbs */
+    @keyframes orb-float-1 {
 
-                <div class="skills__container bd-grid">          
-                    <div>
-                        <h2 class="skills__subtitle">Profesional Skills</h2>
-                        <p class="skills__text"> Communication, Teamwork, and Problem-Solving: A Unified Approach.</p>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-html5 skills__icon'></i>
-                                <span class="skills__name">HTML5</span>
-                            </div>
-                            <div class="skills__bar skills__html">
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: 0.16;
+      }
 
-                            </div>
-                            <div>
-                                <span class="skills__percentage">95%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-css3 skills__icon'></i>
-                                <span class="skills__name">CSS3</span>
-                            </div>
-                            <div class="skills__bar skills__css">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">85%</span>
-                            </div>
-                        </div>
-                        <div class="skills__data">
-                            <div class="skills__names">
-                                <i class='bx bxl-javascript skills__icon' ></i>
-                                <span class="skills__name">JAVASCRIPT</span>
-                            </div>
-                            <div class="skills__bar skills__js">
-                                
-                            </div>
-                            <div>
-                                <span class="skills__percentage">65%</span>
-                            </div>
-                        </div>
-                      <div>              
-                        <img src="assets/img/work3.jpg" alt="" class="skills__img">
-                    </div>
-                </div>
-            </section>
+      50% {
+        transform: translate3d(50px, -35px, 0) scale(1.18);
+        opacity: 0.32;
+      }
+    }
 
-            <!--===== WORK =====-->
-            <section class="work section" id="work">
-                <h2 class="section-title">Work</h2>
+    @keyframes orb-float-2 {
 
-                <div class="work__container bd-grid">
-                    <a href="" class="work__img">
-                        <img src="assets/img/work1.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work2.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work3.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work4.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work5.jpg" alt="">
-                    </a>
-                    <a href="" class="work__img">
-                        <img src="assets/img/work6.jpg" alt="">
-                    </a>
-                </div>
-            </section>
+      0%,
+      100% {
+        transform: translate3d(0, 0, 0) scale(1);
+        opacity: 0.14;
+      }
 
-            <!--===== CONTACT =====-->
-            <section class="contact section" id="contact">
-                <h2 class="section-title">Contact</h2>
+      50% {
+        transform: translate3d(-45px, 30px, 0) scale(1.15);
+        opacity: 0.28;
+      }
+    }
 
-                <div class="contact__container bd-grid">
-                    <form action="" class="contact__form">
-                        <input type="text" placeholder="Name" class="contact__input">
-                        <input type="mail" placeholder="Email" class="contact__input">
-                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
-                        <input type="button" value="Enviar" class="contact__button button">
-                    </form>
-                </div>
-            </section>
-        </main>
+    .hero-orb-1 {
+      animation: orb-float-1 14s ease-in-out infinite;
+      will-change: transform, opacity;
+    }
 
-        <!--===== FOOTER =====-->
-        <footer class="footer">
-            <p class="footer__title">Marlon</p>
-            <div class="footer__social">
-                <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-                <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+    .hero-orb-2 {
+      animation: orb-float-2 18s ease-in-out infinite;
+      will-change: transform, opacity;
+    }
+
+    /* Hero Entrance Keyframes */
+    @keyframes heroFadeDown {
+      from {
+        opacity: 0;
+        transform: translate3d(0, -18px, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 24px, 0);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes heroFadeLeft {
+      from {
+        opacity: 0;
+        transform: translate3d(40px, 0, 0) scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+    }
+
+    .hero-anim-badge {
+      animation: heroFadeDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-anim-title {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+    }
+
+    .hero-anim-desc {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+    }
+
+    .hero-anim-cta {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.38s both;
+    }
+
+    .hero-anim-metrics {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    }
+
+    .hero-anim-card {
+      animation: heroFadeLeft 1s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+    }
+
+    /* Kinetic Typewriter Cursor */
+    .hero-cursor {
+      display: inline-block;
+      margin-left: 2px;
+      color: #dc95ff;
+      font-weight: 300;
+      animation: blinkCursor 0.9s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      text-shadow: 0 0 12px rgba(220, 149, 255, 0.9);
+    }
+
+    @keyframes blinkCursor {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    /* Dynamic Gradient Shimmer for Typewriter Text */
+    .hero-shimmer-text {
+      background: linear-gradient(135deg, #ffffff 0%, #dc95ff 45%, #f3d4ff 75%, #ffffff 100%);
+      background-size: 250% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShimmer 6s linear infinite;
+    }
+
+    @keyframes textShimmer {
+      to {
+        background-position: 250% center;
+      }
+    }
+
+    /* CTA Button Light Sweep Animation */
+    .hero-btn-primary {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.2s ease;
+    }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px -2px rgba(220, 149, 255, 0.6);
+    }
+
+    .hero-btn-primary::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 45%;
+      height: 200%;
+      background: linear-gradient(60deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.45) 50%,
+          rgba(255, 255, 255, 0) 100%);
+      transform: rotate(25deg);
+      animation: btnShine 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes btnShine {
+
+      0%,
+      75% {
+        left: -60%;
+      }
+
+      100% {
+        left: 140%;
+      }
+    }
+
+    /* 3D Holographic Card & Tilt Container */
+    .hero-card-perspective {
+      perspective: 1200px;
+    }
+
+    .hero-deck-card {
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.4, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+      will-change: transform;
+      background: linear-gradient(150deg, rgba(22, 19, 28, 0.94), rgba(12, 10, 16, 0.98));
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(220, 149, 255, 0.22);
+      border-radius: 1.25rem;
+      box-shadow:
+        0 20px 50px -15px rgba(0, 0, 0, 0.75),
+        0 0 35px -5px rgba(220, 149, 255, 0.16);
+    }
+
+    .hero-deck-card:hover {
+      border-color: rgba(220, 149, 255, 0.5);
+      box-shadow:
+        0 25px 65px -15px rgba(0, 0, 0, 0.85),
+        0 0 50px -4px rgba(220, 149, 255, 0.35);
+    }
+
+    /* Interactive Spotlight follow */
+    .hero-card-spotlight {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle 240px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          rgba(220, 149, 255, 0.15),
+          transparent 80%);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    /* Floating Satellite Pills */
+    @keyframes floatSatellite1 {
+
+      0%,
+      100% {
+        transform: translate3d(0, 0, 30px);
+      }
+
+      50% {
+        transform: translate3d(0, -10px, 30px);
+      }
+    }
+
+    @keyframes floatSatellite2 {
+
+      0%,
+      100% {
+        transform: translate3d(0, 0, 30px);
+      }
+
+      50% {
+        transform: translate3d(0, 9px, 30px);
+      }
+    }
+
+    .satellite-pill-1 {
+      animation: floatSatellite1 5s ease-in-out infinite;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 20px -2px rgba(220, 149, 255, 0.35);
+      transform-style: preserve-3d;
+    }
+
+    .satellite-pill-2 {
+      animation: floatSatellite2 6s ease-in-out 0.8s infinite;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 20px -2px rgba(220, 149, 255, 0.35);
+      transform-style: preserve-3d;
+    }
+
+    /* Animated Scroll Prompt Indicator */
+    @keyframes scrollBounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(7px);
+      }
+
+      60% {
+        transform: translateY(3.5px);
+      }
+    }
+
+    .hero-scroll-indicator {
+      animation: scrollBounce 2.5s ease-in-out infinite;
+    }
+
+    /* ========================================================================= */
+    /* 2. ABOUT SECTION CREATIVE ANIMATIONS                                      */
+    /* ========================================================================= */
+
+    .about-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .about-reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .about-delay-1 {
+      transition-delay: 0.08s;
+    }
+
+    .about-delay-2 {
+      transition-delay: 0.18s;
+    }
+
+    .about-delay-3 {
+      transition-delay: 0.28s;
+    }
+
+    .about-delay-4 {
+      transition-delay: 0.38s;
+    }
+
+    /* Animated Underline for About Title */
+    .about-title-line {
+      width: 0;
+      transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    }
+
+    .in-view .about-title-line,
+    .about-reveal.in-view .about-title-line {
+      width: 64px;
+    }
+
+    /* Counter Card Glow & Pulse */
+    .about-counter-card {
+      background: linear-gradient(135deg, rgba(22, 19, 28, 0.9), rgba(14, 12, 18, 0.95));
+      border: 1px solid rgba(220, 149, 255, 0.16);
+      border-radius: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+
+    .about-counter-card:hover {
+      border-color: rgba(220, 149, 255, 0.45);
+      box-shadow: 0 10px 25px -5px rgba(220, 149, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Domain Cards Micro-tilt & Spotlight */
+    .about-domain-card {
+      position: relative;
+      background: linear-gradient(145deg, rgba(22, 19, 28, 0.92), rgba(12, 10, 16, 0.96));
+      border: 1px solid rgba(220, 149, 255, 0.18);
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .about-domain-card:hover {
+      border-color: rgba(220, 149, 255, 0.55);
+      box-shadow:
+        0 14px 30px -8px rgba(0, 0, 0, 0.75),
+        0 0 25px -4px rgba(220, 149, 255, 0.25);
+    }
+
+    .about-domain-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle 120px at var(--about-mouse-x, 50%) var(--about-mouse-y, 50%),
+          rgba(220, 149, 255, 0.18),
+          transparent 80%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .about-domain-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Domain Card Icon Glow */
+    .about-icon-glow {
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), text-shadow 0.3s ease;
+    }
+
+    .about-domain-card:hover .about-icon-glow {
+      transform: scale(1.15) translateY(-2px);
+      text-shadow: 0 0 16px rgba(220, 149, 255, 0.85);
+    }
+
+    /* Portrait Image Frame Glow */
+    .about-portrait-wrapper {
+      position: relative;
+    }
+
+    .about-portrait-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 1.25rem;
+      background: linear-gradient(135deg, rgba(220, 149, 255, 0.35), transparent 50%, rgba(184, 104, 255, 0.25));
+      z-index: -1;
+      filter: blur(10px);
+      opacity: 0.6;
+      transition: opacity 0.4s ease;
+    }
+
+    .about-portrait-wrapper:hover::after {
+      opacity: 0.95;
+    }
+
+    /* ========================================================================= */
+    /* 3. TECHNICAL SKILLS CREATIVE ANIMATIONS                                   */
+    /* ========================================================================= */
+
+    .skills-reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .skills-reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .skills-delay-1 {
+      transition-delay: 0.08s;
+    }
+
+    .skills-delay-2 {
+      transition-delay: 0.16s;
+    }
+
+    .skills-delay-3 {
+      transition-delay: 0.24s;
+    }
+
+    .skills-delay-4 {
+      transition-delay: 0.32s;
+    }
+
+    .skills-delay-5 {
+      transition-delay: 0.40s;
+    }
+
+    .skills-delay-6 {
+      transition-delay: 0.48s;
+    }
+
+    /* Animated Underline for Skills Title */
+    .skills-title-line {
+      width: 0;
+      transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    }
+
+    .in-view .skills-title-line,
+    .skills-reveal.in-view .skills-title-line {
+      width: 64px;
+    }
+
+    /* Skills Category Card Micro-tilt & Spotlight */
+    .skills-card {
+      position: relative;
+      background: linear-gradient(150deg, rgba(22, 19, 28, 0.94), rgba(12, 10, 16, 0.98));
+      border: 1px solid rgba(220, 149, 255, 0.18);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0.8, 0.4, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+      will-change: transform, opacity;
+    }
+
+    .skills-card:hover {
+      border-color: rgba(220, 149, 255, 0.5);
+      box-shadow:
+        0 16px 35px -10px rgba(0, 0, 0, 0.8),
+        0 0 30px -4px rgba(220, 149, 255, 0.22);
+    }
+
+    .skills-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle 140px at var(--skills-mouse-x, 50%) var(--skills-mouse-y, 50%),
+          rgba(220, 149, 255, 0.16),
+          transparent 80%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .skills-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Interactive Tech Pills */
+    .skill-tech-pill {
+      position: relative;
+      background-color: rgba(18, 15, 23, 0.9);
+      border: 1px solid rgba(40, 33, 51, 0.9);
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+      cursor: default;
+    }
+
+    .skill-tech-pill:hover {
+      transform: translateY(-3px) scale(1.04);
+      border-color: rgba(220, 149, 255, 0.6);
+      color: #ffffff;
+      background-color: rgba(29, 25, 38, 0.95);
+      box-shadow: 0 6px 15px -3px rgba(220, 149, 255, 0.35);
+    }
+
+    /* Infinite Marquee Ticker */
+    @keyframes skillsTicker {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    .skills-ticker-track {
+      display: flex;
+      width: max-content;
+      animation: skillsTicker 25s linear infinite;
+      will-change: transform;
+    }
+
+    .skills-ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* ========================================================================= */
+    /* 4. WORK EXPERIENCE CREATIVE ANIMATIONS                                    */
+    /* ========================================================================= */
+
+    .exp-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .exp-reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .exp-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .exp-delay-2 {
+      transition-delay: 0.22s;
+    }
+
+    /* Animated Underline for Experience Title */
+    .exp-title-line {
+      width: 0;
+      transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+    }
+
+    .in-view .exp-title-line,
+    .exp-reveal.in-view .exp-title-line {
+      width: 64px;
+    }
+
+    /* Vertical Neon Spine Rail & Active Fill */
+    .exp-spine-rail {
+      position: absolute;
+      left: 0;
+      top: 1.5rem;
+      bottom: 2rem;
+      width: 2px;
+      background: rgba(40, 33, 51, 0.8);
+      border-radius: 9999px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    @media (min-width: 640px) {
+      .exp-spine-rail {
+        left: 0.5rem;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .exp-spine-rail {
+        left: 1rem;
+      }
+    }
+
+    .exp-spine-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(to bottom, #dc95ff, #b868ff, #ffffff);
+      box-shadow: 0 0 14px 2px rgba(220, 149, 255, 0.75);
+      transition: height 0.15s ease-out;
+      border-radius: inherit;
+    }
+
+    /* Experience Card 3D Tilt & Spotlight */
+    .exp-card {
+      position: relative;
+      background: linear-gradient(150deg, rgba(22, 19, 28, 0.94), rgba(13, 11, 17, 0.98));
+      border: 1px solid rgba(220, 149, 255, 0.18);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s cubic-bezier(0.2, 0.8, 0.4, 1);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .exp-card:hover {
+      border-color: rgba(220, 149, 255, 0.5);
+      box-shadow:
+        0 18px 40px -10px rgba(0, 0, 0, 0.8),
+        0 0 32px -4px rgba(220, 149, 255, 0.24);
+    }
+
+    .exp-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle 220px at var(--exp-mouse-x, 50%) var(--exp-mouse-y, 50%),
+          rgba(220, 149, 255, 0.14),
+          transparent 80%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .exp-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Node Marker Pulsing Glow */
+    .exp-node-beacon {
+      position: relative;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .group:hover .exp-node-beacon {
+      transform: scale(1.15);
+      border-color: #dc95ff;
+      box-shadow: 0 0 20px 2px rgba(220, 149, 255, 0.6);
+    }
+
+    /* Bullet Point Hover Lighting */
+    .exp-bullet-item {
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .exp-bullet-item:hover {
+      transform: translateX(4px);
+    }
+
+    .exp-bullet-item:hover .material-symbols-outlined {
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(220, 149, 255, 0.9);
+    }
+
+    /* ========================================================================= */
+    /* Contact Card — Framer-Inspired Traveling Neon Border Beam                 */
+    /* ========================================================================= */
+    @property --border-angle {
+      syntax: "<angle>";
+      inherits: false;
+      initial-value: 0deg;
+    }
+
+    .contact-card {
+      position: relative;
+      border-radius: 1.5rem;
+      background-color: #16131c;
+      border: 1px solid rgba(220, 149, 255, 0.22);
+      box-shadow: 0 0 25px -4px rgba(220, 149, 255, 0.12);
+      transition: border-color 250ms ease, box-shadow 250ms ease;
+      isolation: isolate;
+    }
+
+    /* 1. Sharp Traveling Neon Light Beam */
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 2px;
+      background: conic-gradient(from var(--border-angle),
+          transparent 0deg,
+          transparent 35deg,
+          rgba(220, 149, 255, 0.2) 60deg,
+          rgba(220, 149, 255, 0.85) 80deg,
+          #ffffff 90deg,
+          #dc95ff 95deg,
+          rgba(184, 104, 255, 0.85) 105deg,
+          rgba(220, 149, 255, 0.2) 120deg,
+          transparent 145deg,
+          transparent 360deg);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      animation: contact-border-rotate 8s linear infinite;
+      z-index: 2;
+    }
+
+    /* 2. Soft Traveling Neon Outer Glow following the beam */
+    .contact-card::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 3px;
+      background: conic-gradient(from var(--border-angle),
+          transparent 0deg,
+          transparent 30deg,
+          rgba(220, 149, 255, 0.25) 55deg,
+          rgba(220, 149, 255, 0.95) 85deg,
+          #dc95ff 95deg,
+          rgba(184, 104, 255, 0.95) 105deg,
+          rgba(220, 149, 255, 0.25) 125deg,
+          transparent 150deg,
+          transparent 360deg);
+      -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      filter: blur(8px);
+      opacity: 0.85;
+      pointer-events: none;
+      animation: contact-border-rotate 8s linear infinite;
+      z-index: 1;
+      transition: opacity 250ms ease, filter 250ms ease;
+    }
+
+    /* Ensure all content sits cleanly above the animated border and remains clickable */
+    .contact-card>* {
+      position: relative;
+      z-index: 3;
+    }
+
+    /* Refined Hover Interaction */
+    .contact-card:hover {
+      border-color: rgba(220, 149, 255, 0.45);
+      box-shadow: 0 0 38px -2px rgba(220, 149, 255, 0.28);
+    }
+
+    .contact-card:hover::after {
+      opacity: 1;
+      filter: blur(10px) drop-shadow(0 0 8px rgba(220, 149, 255, 0.95));
+    }
+
+    /* Continuous 360-degree rotation animation */
+    @keyframes contact-border-rotate {
+      to {
+        --border-angle: 360deg;
+      }
+    }
+
+    /* Accessibility: Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+
+      .contact-card,
+      .hero-deck-card,
+      .satellite-pill-1,
+      .satellite-pill-2,
+      .hero-orb-1,
+      .hero-orb-2,
+      .hero-scroll-indicator,
+      .about-domain-card,
+      .skills-card,
+      .exp-card,
+      .exp-node-beacon {
+        animation: none !important;
+        transform: none !important;
+      }
+
+      .hero-btn-primary::after,
+      .skills-ticker-track {
+        animation: none !important;
+      }
+
+      .hero-anim-badge,
+      .hero-anim-title,
+      .hero-anim-desc,
+      .hero-anim-cta,
+      .hero-anim-metrics,
+      .hero-anim-card,
+      .about-reveal,
+      .skills-reveal,
+      .exp-reveal {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      .about-title-line,
+      .skills-title-line,
+      .exp-title-line {
+        width: 64px !important;
+        transition: none !important;
+      }
+
+      .exp-spine-fill {
+        height: 100% !important;
+        transition: none !important;
+      }
+
+      .contact-card {
+        border-color: rgba(220, 149, 255, 0.35);
+      }
+
+      .contact-card::before,
+      .contact-card::after {
+        animation: none;
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="bg-canvas text-text-primary font-body antialiased selection:bg-primary selection:text-canvas min-h-screen flex flex-col">
+
+  <!-- ========================================================================= -->
+  <!-- 1. STICKY TOP NAVBAR                                                      -->
+  <!-- ========================================================================= -->
+  <header class="docked full-width top-0 sticky z-50 bg-canvas/85 backdrop-blur-md border-b border-card-border/80">
+    <div class="w-full max-w-max-container mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <!-- Brand Logo / Anchor -->
+      <a class="font-headline text-lg tracking-tight font-semibold flex items-center gap-1 group text-text-primary"
+        href="#hero">
+        <span class="text-primary font-mono">&lt;</span>
+        <span class="tracking-tight text-white group-hover:text-primary transition-colors">Keerthi</span>
+        <span class="text-accent font-mono">/&gt;</span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a class="text-primary border-b-2 border-primary pb-0.5 font-medium font-mono text-xs transition duration-150 ease-out"
+          href="#hero">
+          Home
+        </a>
+        <a class="text-text-secondary hover:text-primary transition-colors duration-150 font-mono text-xs"
+          href="#about">
+          About
+        </a>
+        <a class="text-text-secondary hover:text-primary transition-colors duration-150 font-mono text-xs"
+          href="#skills">
+          Skills
+        </a>
+        <a class="text-text-secondary hover:text-primary transition-colors duration-150 font-mono text-xs"
+          href="#experience">
+          Experience
+        </a>
+        <a class="text-text-secondary hover:text-primary transition-colors duration-150 font-mono text-xs"
+          href="#projects">
+          Projects
+        </a>
+        <a class="text-text-secondary hover:text-primary transition-colors duration-150 font-mono text-xs"
+          href="#contact">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Action Cluster -->
+      <div class="flex items-center gap-3">
+        <div
+          class="hidden sm:flex items-center text-text-muted text-xs font-mono px-2.5 py-1 border border-card-border bg-surface rounded-lg">
+          <span class="material-symbols-outlined text-primary text-[15px] mr-1.5">terminal</span>
+          <span class="text-text-secondary">v2.5.0</span>
+        </div>
+        <a class="px-4 py-1.5 bg-primary hover:bg-primary-hover text-canvas rounded-lg font-mono text-xs font-bold transition duration-150 ease-out flex items-center gap-1.5 neon-glow-sm"
+          href="#contact">
+          <span>Hire Me</span>
+          <span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" type="button"
+          class="md:hidden flex items-center justify-center w-9 h-9 rounded-lg bg-surface border border-card-border text-text-secondary hover:text-white hover:border-primary/50 transition-colors"
+          aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="material-symbols-outlined text-[20px]" id="mobile-menu-icon">menu</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobile-menu"
+      class="hidden md:hidden border-b border-card-border bg-canvas/95 backdrop-blur-md px-6 py-4 transition-all">
+      <nav class="flex flex-col gap-3 font-mono text-xs">
+        <a class="text-text-secondary hover:text-primary transition-colors py-1.5" href="#hero">Home</a>
+        <a class="text-text-secondary hover:text-primary transition-colors py-1.5" href="#about">About</a>
+        <a class="text-text-secondary hover:text-primary transition-colors py-1.5" href="#skills">Skills</a>
+        <a class="text-text-secondary hover:text-primary transition-colors py-1.5" href="#experience">Experience</a>
+        <a class="text-text-secondary hover:text-primary transition-colors py-1.5" href="#projects">Projects</a>
+        <a class="text-text-secondary hover:text-primary transition-colors py-1.5" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN CONTENT CONTAINER                                                    -->
+  <!-- ========================================================================= -->
+  <main class="flex-grow">
+
+    <!-- ======================================================================= -->
+    <!-- 2. HERO SECTION                                                         -->
+    <!-- ======================================================================= -->
+    <section
+      class="relative pt-16 pb-20 md:pt-24 md:pb-28 border-b border-card-border/60 bg-grid-subtle overflow-hidden"
+      id="hero">
+
+      <!-- Interactive Constellation Particle Canvas -->
+      <canvas id="hero-canvas" class="absolute inset-0 pointer-events-none"></canvas>
+
+      <!-- Ambient Floating Glowing Lilac/Violet Blooms in Background -->
+      <div
+        class="hero-orb-1 absolute -top-32 right-10 w-[28rem] h-[28rem] bg-primary/15 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+      <div
+        class="hero-orb-2 absolute top-1/3 -left-24 w-[24rem] h-[24rem] bg-accent-violet/15 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+      <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-primary/8 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+
+      <div class="w-full max-w-max-container mx-auto px-6 lg:px-8 relative z-10">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- LEFT COLUMN: Headline, Dynamic Typewriter, CTAs & Metrics (7 cols) -->
+          <div class="lg:col-span-7 flex flex-col justify-center">
+
+            <!-- Live Status Badge with Ping & Glow -->
+            <div
+              class="hero-anim-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-tag-bg border border-tag-border mb-6 self-start shadow-sm hover:border-primary/40 transition-colors">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              <span class="font-mono text-xs text-accent font-medium tracking-wide">Available for New
+                Opportunities</span>
             </div>
-            <p class="footer__copy">&#169; Bedimcode. All rigths reserved</p>
-        </footer>
 
+            <!-- Dynamic Headline with Animated Typewriter -->
+            <h1
+              class="hero-anim-title font-display text-4xl sm:text-5xl lg:text-6xl text-white font-bold tracking-tight text-balance mb-6 leading-tight">
+              Hi, I’m Keerthi — <br />
+              <span class="inline-block">
+                <span id="hero-typewriter-text" class="hero-shimmer-text text-primary">Front-End Developer</span>
+                <span class="hero-cursor font-mono">|</span>
+              </span>
+              <span class="block text-text-secondary font-normal text-2xl sm:text-3xl lg:text-4xl mt-1">&amp; UI
+                Designer.</span>
+            </h1>
 
-        <!--===== SCROLL REVEAL =====-->
-        <script src="https://unpkg.com/scrollreveal"></script>
+            <!-- Editorial Sub-summary -->
+            <p class="hero-anim-desc font-body text-base sm:text-lg text-text-secondary max-w-2xl leading-relaxed mb-8">
+              Specialized in crafting clean, accessible, and high-performance digital experiences.
+              Bridging architectural discipline, rigorous typographic rhythm, and robust modern web code.
+            </p>
 
-        <!--===== MAIN JS =====-->
-        <script src="assets/js/main.js"></script>
-    </body>
+            <!-- Dual CTAs & Social Links -->
+            <div class="hero-anim-cta flex flex-wrap items-center gap-4 mb-10">
+              <!-- Primary Action with Shimmer Sweep & Glow -->
+              <a class="hero-btn-primary px-6 py-2.5 bg-gradient-to-r from-primary to-accent-violet text-canvas rounded-lg font-mono text-xs font-bold transition duration-200 ease-out flex items-center gap-2 neon-glow group"
+                href="#contact">
+                <span>Get In Touch</span>
+                <span
+                  class="material-symbols-outlined text-[17px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">send</span>
+              </a>
+
+              <!-- Secondary Action -->
+              <a class="px-6 py-2.5 bg-surface-card border border-card-border hover:border-primary/50 text-text-primary hover:text-white rounded-lg font-mono text-xs font-medium transition duration-200 ease-out flex items-center gap-2 hover:bg-surface-card-hover group"
+                href="#projects">
+                <span>View Projects</span>
+                <span
+                  class="material-symbols-outlined text-[17px] group-hover:translate-y-0.5 transition-transform">south</span>
+              </a>
+
+              <!-- Separator Line -->
+              <div class="hidden sm:block h-6 w-px bg-card-border mx-1"></div>
+
+              <!-- Social Links / Badges -->
+              <div class="flex items-center gap-2">
+                <a aria-label="GitHub Profile"
+                  class="px-3 py-2 bg-surface-card border border-card-border hover:border-primary hover:text-primary text-text-secondary rounded-lg font-mono text-xs flex items-center gap-1.5 transition-all duration-200 hover:-translate-y-0.5"
+                  href="https://github.com/Keerthi-thallam" rel="noopener noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-[16px] text-primary">code</span>
+                  <span>GitHub</span>
+                </a>
+                <a aria-label="LinkedIn Profile"
+                  class="px-3 py-2 bg-surface-card border border-card-border hover:border-primary hover:text-primary text-text-secondary rounded-lg font-mono text-xs flex items-center gap-1.5 transition-all duration-200 hover:-translate-y-0.5"
+                  href="https://www.linkedin.com/in/thallam-venkata-keerthi/" rel="noopener noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-[16px] text-primary">hub</span>
+                  <span>LinkedIn</span>
+                </a>
+                <a aria-label="X Profile"
+                  class="px-3 py-2 bg-surface-card border border-card-border hover:border-primary hover:text-primary text-text-secondary rounded-lg font-mono text-xs flex items-center gap-1.5 transition-all duration-200 hover:-translate-y-0.5"
+                  href="https://x.com" rel="noopener noreferrer" target="_blank">
+                  <span class="material-symbols-outlined text-[16px] text-primary">share</span>
+                  <span>Twitter / X</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Bottom Micro-tagline -->
+            <div class="hero-anim-metrics flex flex-wrap items-center gap-4 text-text-muted font-mono text-xs">
+              <span class="flex items-center gap-1.5 hover:text-text-secondary transition-colors">
+                <span class="material-symbols-outlined text-primary text-[15px]">check_circle</span> Zero Bloat
+              </span>
+              <span class="inline-block w-1 h-1 rounded-full bg-card-border"></span>
+              <span class="flex items-center gap-1.5 hover:text-text-secondary transition-colors">
+                <span class="material-symbols-outlined text-primary text-[15px]">accessibility_new</span> WCAG AAA
+                Strict
+              </span>
+              <span class="inline-block w-1 h-1 rounded-full bg-card-border"></span>
+              <span class="flex items-center gap-1.5 hover:text-text-secondary transition-colors">
+                <span class="material-symbols-outlined text-primary text-[15px]">speed</span> Sub-second TTI
+              </span>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: 3D Holographic Developer Terminal Card with Satellites (5 cols) -->
+          <div class="lg:col-span-5 relative mt-6 lg:mt-0 flex justify-center hero-anim-card">
+
+            <div id="hero-card-container" class="hero-card-perspective w-full max-w-md relative select-none">
+
+              <!-- Floating Satellite 1 (Top-Right) -->
+              <div
+                class="satellite-pill-1 absolute -top-4 -right-2 z-30 px-3.5 py-1.5 rounded-full bg-surface-card/95 border border-primary/40 backdrop-blur-md flex items-center gap-2 text-xs font-mono text-text-primary">
+                <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                <span>⚛️ React &amp; Tailwind</span>
+              </div>
+
+              <!-- Main 3D Holographic Code Deck Card -->
+              <div id="hero-code-card" class="hero-deck-card p-5 sm:p-6 overflow-hidden">
+
+                <!-- Dynamic Spotlight Glow Layer -->
+                <div class="hero-card-spotlight"></div>
+
+                <!-- Window Top Header Bar -->
+                <div class="relative z-10 flex items-center justify-between pb-3.5 mb-4 border-b border-card-border/80">
+                  <!-- macOS Traffic Lights -->
+                  <div class="flex items-center gap-2">
+                    <span
+                      class="w-3 h-3 rounded-full bg-[#ff5f56]/90 border border-[#e0443e]/50 inline-block shadow-sm"></span>
+                    <span
+                      class="w-3 h-3 rounded-full bg-[#ffbd2e]/90 border border-[#dea123]/50 inline-block shadow-sm"></span>
+                    <span
+                      class="w-3 h-3 rounded-full bg-[#27c93f]/90 border border-[#1aab29]/50 inline-block shadow-sm"></span>
+                    <span class="ml-2 font-mono text-[11px] text-text-muted flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-primary text-[14px]">data_object</span>
+                      keerthi.config.ts
+                    </span>
+                  </div>
+
+                  <!-- Copy Snippet Button -->
+                  <button id="hero-copy-btn" type="button"
+                    class="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono text-text-muted hover:text-text-primary border border-card-border/60 hover:border-primary/40 bg-surface/80 transition-all cursor-pointer"
+                    title="Copy code snippet">
+                    <span id="hero-copy-icon" class="material-symbols-outlined text-[13px]">content_copy</span>
+                    <span id="hero-copy-text">Copy</span>
+                  </button>
+                </div>
+
+                <!-- Code Editor Lines -->
+                <div
+                  class="relative z-10 font-mono text-xs sm:text-[13px] leading-relaxed overflow-x-auto text-text-secondary">
+                  <div class="flex">
+                    <span class="w-6 text-text-muted/50 select-none">1</span>
+                    <p><span class="text-primary font-semibold">const</span> <span
+                        class="text-[#e9b8ff]">engineer</span>: <span class="text-text-primary">DeveloperProfile</span>
+                      = {</p>
+                  </div>
+                  <div class="flex">
+                    <span class="w-6 text-text-muted/50 select-none">2</span>
+                    <p class="pl-4"><span class="text-text-muted">name:</span> <span
+                        class="text-[#8ef5bb]">"Keerthi"</span>,</p>
+                  </div>
+                  <div class="flex">
+                    <span class="w-6 text-text-muted/50 select-none">3</span>
+                    <p class="pl-4"><span class="text-text-muted">role:</span> <span class="text-[#8ef5bb]">"Front-End
+                        Developer"</span>,</p>
+                  </div>
+                  <div class="flex">
+                    <span class="w-6 text-text-muted/50 select-none">4</span>
+                    <p class="pl-4"><span class="text-text-muted">stack:</span> [<span
+                        class="text-accent font-medium">"React"</span>, <span
+                        class="text-accent font-medium">"TS"</span>, <span
+                        class="text-accent font-medium">"Tailwind"</span>],</p>
+                  </div>
+                  <div class="flex">
+                    <span class="w-6 text-text-muted/50 select-none">5</span>
+                    <p class="pl-4"><span class="text-text-muted">performance:</span> <span
+                        class="text-primary font-medium">"60fps Strict"</span>,</p>
+                  </div>
+                  <div class="flex">
+                    <span class="w-6 text-text-muted/50 select-none">6</span>
+                    <p class="pl-4"><span class="text-text-muted">available:</span> <span
+                        class="text-[#7ce38b] font-semibold">true</span></p>
+                  </div>
+                  <div class="flex">
+                    <span class="w-6 text-text-muted/50 select-none">7</span>
+                    <p>};</p>
+                  </div>
+                </div>
+
+                <!-- Card Bottom Status Footer -->
+                <div
+                  class="relative z-10 mt-5 pt-3.5 border-t border-card-border/80 flex items-center justify-between text-[11px] font-mono text-text-muted">
+                  <div class="flex items-center gap-2">
+                    <span class="relative flex h-2 w-2">
+                      <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#27c93f] opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-[#27c93f]"></span>
+                    </span>
+                    <span class="text-text-secondary">Core Engine: Ready</span>
+                  </div>
+                  <span class="text-primary/80 font-medium">UTF-8 · TypeScript</span>
+                </div>
+
+              </div>
+
+              <!-- Floating Satellite 2 (Bottom-Left) -->
+              <div
+                class="satellite-pill-2 absolute -bottom-4 -left-2 z-30 px-3.5 py-1.5 rounded-full bg-surface-card/95 border border-primary/40 backdrop-blur-md flex items-center gap-2 text-xs font-mono text-text-primary">
+                <span class="material-symbols-outlined text-primary text-[15px]">electric_bolt</span>
+                <span>Sub-second TTI &amp; 100% WCAG</span>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Animated Scroll Prompt Indicator -->
+        <div class="mt-12 sm:mt-16 flex justify-center">
+          <button id="hero-scroll-btn" type="button"
+            class="hero-scroll-indicator group flex flex-col items-center gap-2 text-text-muted hover:text-primary transition-colors cursor-pointer bg-transparent border-0"
+            aria-label="Scroll to About section">
+            <span
+              class="font-mono text-[10px] tracking-widest uppercase font-semibold text-text-muted group-hover:text-primary transition-colors">
+              Explore Portfolio
+            </span>
+            <div
+              class="w-6 h-10 rounded-full border border-card-border group-hover:border-primary flex items-start justify-center p-1 transition-colors">
+              <span class="w-1.5 h-2.5 rounded-full bg-primary animate-bounce"></span>
+            </div>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- 3. ABOUT SECTION (Who I Am)                                             -->
+    <!-- ======================================================================= -->
+    <section class="py-16 md:py-24 border-b border-card-border/60 bg-surface relative overflow-hidden" id="about">
+
+      <!-- Subtle ambient #DC95FF gradient blooms in background -->
+      <div class="absolute top-1/2 right-10 w-96 h-96 bg-primary/8 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+      <div
+        class="absolute -bottom-20 -left-10 w-80 h-80 bg-accent-violet/6 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+
+      <div class="w-full max-w-max-container mx-auto px-6 lg:px-8 relative z-10">
+
+        <!-- Centered Header with Animated Line -->
+        <div class="text-center mb-12 md:mb-14 about-reveal">
+          <p class="font-mono text-xs sm:text-sm text-primary tracking-widest uppercase font-semibold mb-2">
+            // ABOUT
+          </p>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight">
+            Who I Am
+          </h2>
+          <div class="about-title-line h-0.5 bg-gradient-to-r from-primary to-accent-violet mx-auto mt-3 rounded-full">
+          </div>
+        </div>
+
+        <!-- Content Card with Bio & Animated Counters -->
+        <div class="max-w-4xl mx-auto">
+          <div
+            class="bg-surface-card border border-card-border rounded-2xl p-7 sm:p-10 shadow-xl transition-all duration-300 hover:border-card-border-hover about-reveal about-delay-1 relative overflow-hidden">
+
+            <!-- Top University & Specialization Tag -->
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-tag-bg border border-tag-border mb-6">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#27c93f] animate-pulse"></span>
+              <span class="font-mono text-xs text-accent font-medium tracking-wide">NRI Institute of Technology · B.Tech CSE (AIML) · 8.834 CGPA</span>
+            </div>
+
+            <!-- Bio Paragraph 1 -->
+            <p class="font-body text-base sm:text-lg text-text-secondary leading-relaxed mb-6">
+              I'm a passionate Computer Science graduate specializing in <span class="text-white font-medium">Artificial Intelligence &amp; Machine Learning</span> at <span class="text-primary font-medium">NRI Institute of Technology</span> with hands-on experience in frontend engineering using <span class="text-white font-medium">React</span> and <span class="text-white font-medium">Flutter</span>, along with full-stack development, <span class="text-white font-medium">MySQL</span> database management, and intuitive UI/UX design in <span class="text-white font-medium">Figma</span>.
+            </p>
+
+            <!-- Bio Paragraph 2 with highlighted technology pills -->
+            <p class="font-body text-base sm:text-lg text-text-secondary leading-relaxed mb-8">
+              I build and scale applications using
+              <span
+                class="px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/25 text-primary font-mono text-xs sm:text-sm font-medium">React.js</span>,
+              <span
+                class="px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/25 text-primary font-mono text-xs sm:text-sm font-medium">Flutter</span>,
+              <span
+                class="px-2.5 py-1 rounded-lg bg-primary/10 border border-primary/25 text-primary font-mono text-xs sm:text-sm font-medium">Express.js</span>,
+              <span
+                class="px-2.5 py-1 rounded-lg bg-white/5 border border-card-border text-text-primary font-mono text-xs sm:text-sm font-medium">Node.js</span>,
+              <span
+                class="px-2.5 py-1 rounded-lg bg-white/5 border border-card-border text-text-primary font-mono text-xs sm:text-sm font-medium">MySQL</span>,
+              <span
+                class="px-2.5 py-1 rounded-lg bg-white/5 border border-card-border text-text-primary font-mono text-xs sm:text-sm font-medium">Python</span>,
+              and
+              <span
+                class="px-2.5 py-1 rounded-lg bg-white/5 border border-card-border text-text-primary font-mono text-xs sm:text-sm font-medium">Figma (UI/UX)</span>.
+              My work spans responsive client-side architectures, robust API integrations with row-level locking databases, and AI model evaluation pipelines.
+            </p>
+
+            <!-- Animated Metrics Counter Strip (3 Statistics) -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-6 pt-6 border-t border-card-border/60">
+
+              <!-- Stat 1: Years Experience -->
+              <div class="about-counter-card p-4 sm:p-5 text-center">
+                <div
+                  class="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight flex items-center justify-center">
+                  <span class="about-counter-val text-primary" data-target="2" data-suffix="+">00</span>
+                </div>
+                <div class="font-mono text-xs sm:text-sm text-text-muted mt-1.5 uppercase tracking-wider">Years Exp
+                </div>
+              </div>
+
+              <!-- Stat 2: Projects Built -->
+              <div class="about-counter-card p-4 sm:p-5 text-center">
+                <div
+                  class="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight flex items-center justify-center">
+                  <span class="about-counter-val text-primary" data-target="10" data-suffix="+">00</span>
+                </div>
+                <div class="font-mono text-xs sm:text-sm text-text-muted mt-1.5 uppercase tracking-wider">Projects Built
+                </div>
+              </div>
+
+              <!-- Stat 3: Code Quality -->
+              <div class="about-counter-card p-4 sm:p-5 text-center">
+                <div
+                  class="font-display text-2xl sm:text-4xl font-bold text-white tracking-tight flex items-center justify-center">
+                  <span class="about-counter-val text-primary" data-target="100" data-suffix="%">00</span>
+                </div>
+                <div class="font-mono text-xs sm:text-sm text-text-muted mt-1.5 uppercase tracking-wider">Clean Code
+                </div>
+              </div>
+
+            </div>
+
+            <!-- 4 Focus Domain Cards with 3D Micro-tilt & Spotlights -->
+            <div
+              class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-card-border/60 about-reveal about-delay-2">
+
+              <!-- Card 1: Frontend & Mobile -->
+              <div
+                class="about-domain-card p-4 sm:p-5 flex flex-col items-center justify-center text-center cursor-default group">
+                <span class="material-symbols-outlined text-primary text-3xl mb-2.5 about-icon-glow">devices</span>
+                <span
+                  class="font-mono text-xs sm:text-sm text-text-primary font-medium group-hover:text-white transition-colors mb-1">Frontend &amp; Mobile</span>
+                <span
+                  class="font-mono text-[10px] sm:text-xs text-text-muted group-hover:text-primary transition-colors">React.js · Flutter</span>
+              </div>
+
+              <!-- Card 2: Full-Stack & APIs -->
+              <div
+                class="about-domain-card p-4 sm:p-5 flex flex-col items-center justify-center text-center cursor-default group">
+                <span class="material-symbols-outlined text-primary text-3xl mb-2.5 about-icon-glow">dns</span>
+                <span
+                  class="font-mono text-xs sm:text-sm text-text-primary font-medium group-hover:text-white transition-colors mb-1">Full-Stack &amp; APIs</span>
+                <span
+                  class="font-mono text-[10px] sm:text-xs text-text-muted group-hover:text-primary transition-colors">Express · Node.js</span>
+              </div>
+
+              <!-- Card 3: Database Architecture -->
+              <div
+                class="about-domain-card p-4 sm:p-5 flex flex-col items-center justify-center text-center cursor-default group">
+                <span class="material-symbols-outlined text-primary text-3xl mb-2.5 about-icon-glow">database</span>
+                <span
+                  class="font-mono text-xs sm:text-sm text-text-primary font-medium group-hover:text-white transition-colors mb-1">Database Systems</span>
+                <span
+                  class="font-mono text-[10px] sm:text-xs text-text-muted group-hover:text-primary transition-colors">MySQL · Row Locking</span>
+              </div>
+
+              <!-- Card 4: AI/ML & LLM Evaluation -->
+              <div
+                class="about-domain-card p-4 sm:p-5 flex flex-col items-center justify-center text-center cursor-default group">
+                <span class="material-symbols-outlined text-primary text-3xl mb-2.5 about-icon-glow">psychology</span>
+                <span
+                  class="font-mono text-xs sm:text-sm text-text-primary font-medium group-hover:text-white transition-colors mb-1">AI &amp; LLM Eval</span>
+                <span
+                  class="font-mono text-[10px] sm:text-xs text-text-muted group-hover:text-primary transition-colors">Post-Training · ML</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- 4. SKILLS SECTION (Categorized Stack Cards)                             -->
+    <!-- ======================================================================= -->
+    <section class="py-16 md:py-24 border-b border-card-border/60 bg-canvas relative overflow-hidden" id="skills">
+
+      <!-- Subtle ambient gradient lighting -->
+      <div class="absolute top-1/3 -left-32 w-96 h-96 bg-primary/8 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+      <div
+        class="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent-violet/6 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+
+      <div class="w-full max-w-max-container mx-auto px-6 lg:px-8 relative z-10">
+
+        <!-- Centered Header with Animated Line -->
+        <div class="text-center mb-10 md:mb-12 skills-reveal">
+          <p class="font-mono text-xs sm:text-sm text-primary tracking-widest uppercase font-semibold mb-2">
+            // TECHNICAL ARSENAL
+          </p>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-2.5">
+            Technical Skills
+          </h2>
+          <p class="font-body text-sm sm:text-base text-text-secondary max-w-lg mx-auto">
+            Tools, frameworks, and engineering systems I work with daily
+          </p>
+          <div class="skills-title-line h-0.5 bg-gradient-to-r from-primary to-accent-violet mx-auto mt-4 rounded-full">
+          </div>
+        </div>
+
+        <!-- Categorized Stack Grid (6 Categories) with 3D Micro-tilt -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mt-10">
+
+          <!-- Card 1: Programming Languages -->
+          <div class="skills-card p-6 flex flex-col justify-start skills-reveal skills-delay-1">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-mono text-xs uppercase tracking-wider text-primary font-semibold flex items-center gap-2">
+                <span class="material-symbols-outlined text-[17px] text-primary">terminal</span>
+                PROGRAMMING LANGUAGES
+              </h3>
+              <span class="text-[11px] font-mono text-text-muted">2 Technologies</span>
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#3572A5]"></span>
+                Python
+              </span>
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#e38c00]"></span>
+                SQL
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 2: Frontend -->
+          <div class="skills-card p-6 flex flex-col justify-start skills-reveal skills-delay-2">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-mono text-xs uppercase tracking-wider text-primary font-semibold flex items-center gap-2">
+                <span class="material-symbols-outlined text-[17px] text-primary">devices</span>
+                FRONTEND
+              </h3>
+              <span class="text-[11px] font-mono text-text-muted">6 Technologies</span>
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#e34c26]"></span>
+                HTML5
+              </span>
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#264de4]"></span>
+                CSS3
+              </span>
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#61dafb]"></span>
+                React.js
+              </span>
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#38bdf8]"></span>
+                Tailwind CSS
+              </span>
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#02569b]"></span>
+                Flutter
+              </span>
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#3178c6]"></span>
+                TypeScript
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 3: Backend -->
+          <div class="skills-card p-6 flex flex-col justify-start skills-reveal skills-delay-3">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-mono text-xs uppercase tracking-wider text-primary font-semibold flex items-center gap-2">
+                <span class="material-symbols-outlined text-[17px] text-primary">dns</span>
+                BACKEND
+              </h3>
+              <span class="text-[11px] font-mono text-text-muted">2 Technologies</span>
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#ffffff]"></span>
+                Express.js
+              </span>
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#5fa04e]"></span>
+                Node.js
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 4: Database -->
+          <div class="skills-card p-6 flex flex-col justify-start skills-reveal skills-delay-4">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-mono text-xs uppercase tracking-wider text-primary font-semibold flex items-center gap-2">
+                <span class="material-symbols-outlined text-[17px] text-primary">database</span>
+                DATABASE
+              </h3>
+              <span class="text-[11px] font-mono text-text-muted">1 Technology</span>
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#00758f]"></span>
+                MySQL
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 5: Design -->
+          <div class="skills-card p-6 flex flex-col justify-start skills-reveal skills-delay-5">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-mono text-xs uppercase tracking-wider text-primary font-semibold flex items-center gap-2">
+                <span class="material-symbols-outlined text-[17px] text-primary">palette</span>
+                DESIGN
+              </h3>
+              <span class="text-[11px] font-mono text-text-muted">1 Technology</span>
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#f24e1e]"></span>
+                Figma (UI/UX)
+              </span>
+            </div>
+          </div>
+
+          <!-- Card 6: Tools -->
+          <div class="skills-card p-6 flex flex-col justify-start skills-reveal skills-delay-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-mono text-xs uppercase tracking-wider text-primary font-semibold flex items-center gap-2">
+                <span class="material-symbols-outlined text-[17px] text-primary">build</span>
+                TOOLS
+              </h3>
+              <span class="text-[11px] font-mono text-text-muted">4 Technologies</span>
+            </div>
+            <div class="flex flex-wrap gap-2.5">
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#f05032]"></span>
+                Git
+              </span>
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#fafafa]"></span>
+                GitHub
+              </span>
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#007acc]"></span>
+                VS Code
+              </span>
+              <span
+                class="skill-tech-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-text-primary flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#f9ab00]"></span>
+                Google Colab
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- 5. WORK EXPERIENCE SECTION                                              -->
+    <!-- ======================================================================= -->
+    <section class="py-16 md:py-24 border-b border-card-border/60 bg-surface relative overflow-hidden" id="experience">
+
+      <!-- Subtle ambient lighting blooms -->
+      <div class="absolute top-1/4 -right-24 w-80 h-80 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+      <div
+        class="absolute bottom-1/4 -left-24 w-72 h-72 bg-accent-violet/10 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+
+      <div class="w-full max-w-max-container mx-auto px-6 lg:px-8 relative z-10">
+
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16 exp-reveal">
+          <p class="font-mono text-xs sm:text-sm text-primary tracking-widest uppercase font-semibold mb-2">
+            // CAREER &amp; TRACK RECORD
+          </p>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-3">
+            Work Experience
+          </h2>
+          <div class="exp-title-line h-0.5 bg-gradient-to-r from-primary via-accent to-transparent mx-auto mt-2.5 mb-4">
+          </div>
+          <p class="font-body text-sm sm:text-base text-text-secondary max-w-xl mx-auto">
+            Practical AI engineering, LLM post-training evaluation, and computer vision datasets applied in production
+            workflows.
+          </p>
+        </div>
+
+        <!-- Vertical Timeline Container -->
+        <div id="experience-timeline-container" class="max-w-4xl mx-auto relative">
+
+          <!-- Animated Neon Spine Rail with dynamic scroll-linked fill -->
+          <div class="exp-spine-rail" aria-hidden="true">
+            <div id="experience-spine-fill" class="exp-spine-fill"></div>
+          </div>
+
+          <!-- Timeline Items Container -->
+          <div id="experience-timeline-items" class="space-y-0">
+
+            <!-- =============================================================== -->
+            <!-- EXPERIENCE 1: Ethara AI                                         -->
+            <!-- =============================================================== -->
+            <div class="relative pl-7 sm:pl-10 md:pl-16 pb-12 group exp-reveal exp-delay-1">
+              <!-- Glowing Timeline Node Marker -->
+              <div class="absolute left-0 sm:left-2 md:left-4 -translate-x-1/2 top-1.5 flex flex-col items-center">
+                <div
+                  class="exp-node-beacon w-8 h-8 rounded-full bg-surface-card border-2 border-primary/60 flex items-center justify-center shadow-md shadow-primary/20"
+                  title="AI / LLM Post-Training">
+                  <span class="material-symbols-outlined text-primary text-[16px]">psychology</span>
+                </div>
+              </div>
+
+              <!-- Experience Card Container with 3D micro-tilt -->
+              <article class="exp-card p-6 sm:p-8">
+
+                <!-- Header: Initials Logo, Role, Company & Period -->
+                <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
+                  <div class="flex items-start gap-4">
+                    <!-- Company Initials Placeholder Logo -->
+                    <div
+                      class="w-12 h-12 rounded-xl bg-surface border border-primary/40 flex items-center justify-center font-mono font-bold text-sm text-primary shadow-sm shrink-0"
+                      aria-label="Ethara AI Logo">
+                      EA
+                    </div>
+
+                    <!-- Role Title & Company / Category -->
+                    <div>
+                      <h3
+                        class="font-headline text-lg sm:text-xl font-bold text-white group-hover:text-primary transition-colors">
+                        LLM-Post Training Intern
+                      </h3>
+                      <div class="flex flex-wrap items-center gap-2 mt-1">
+                        <span class="font-medium text-sm sm:text-base text-text-primary">Ethara AI</span>
+                        <span class="inline-block w-1 h-1 rounded-full bg-card-border"></span>
+                        <span class="font-mono text-xs text-primary flex items-center gap-1">
+                          <span class="material-symbols-outlined text-[14px]">psychology</span>
+                          AI / LLM Post-Training
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Date Badge & Employment Type -->
+                  <div
+                    class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-1.5 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-card-border/60">
+                    <span
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface border border-card-border font-mono text-xs text-accent font-medium">
+                      <span class="material-symbols-outlined text-[14px] text-primary">calendar_month</span>
+                      January–May 2026
+                    </span>
+                    <span class="font-mono text-[11px] text-text-muted tracking-wider uppercase">Internship</span>
+                  </div>
+                </div>
+
+                <!-- Subtle Separator -->
+                <div class="h-px w-full bg-card-border/60 mb-5"></div>
+
+                <!-- Responsibilities & Measurable Impact -->
+                <div class="space-y-3 mb-6">
+                  <h4 class="font-mono text-[11px] uppercase tracking-wider text-text-muted font-semibold">
+                    Key Responsibilities &amp; Impact
+                  </h4>
+                  <ul class="space-y-2.5 font-body text-sm sm:text-base text-text-secondary leading-relaxed">
+                    <li class="exp-bullet-item flex items-start gap-3">
+                      <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5 select-none"
+                        aria-hidden="true">check_circle</span>
+                      <span class="text-text-secondary leading-relaxed">Evaluated <strong
+                          class="text-white font-semibold">500+ prompt-response pairs per week</strong> for instruction
+                        following, visual fidelity, and artifact detection across three model versions.</span>
+                    </li>
+                    <li class="exp-bullet-item flex items-start gap-3">
+                      <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5 select-none"
+                        aria-hidden="true">check_circle</span>
+                      <span class="text-text-secondary leading-relaxed">Developed annotation guidelines across four
+                        quality dimensions, maintaining <strong class="text-white font-semibold">90% inter-rater
+                          consistency</strong> with the team.</span>
+                    </li>
+                    <li class="exp-bullet-item flex items-start gap-3">
+                      <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5 select-none"
+                        aria-hidden="true">check_circle</span>
+                      <span class="text-text-secondary leading-relaxed">Flagged <strong
+                          class="text-white font-semibold">200+ edge-case prompt failures</strong> that informed
+                        targeted fine-tuning cycles for text-to-image models.</span>
+                    </li>
+                    <li class="exp-bullet-item flex items-start gap-3">
+                      <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5 select-none"
+                        aria-hidden="true">check_circle</span>
+                      <span class="text-text-secondary leading-relaxed">Delivered structured evaluation reports used by
+                        model trainers to prioritize post-training improvement tasks.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Relevant Skill Tags -->
+                <div class="pt-4 border-t border-card-border/60 flex flex-wrap items-center gap-2">
+                  <span
+                    class="font-mono text-[11px] uppercase tracking-wider text-text-muted mr-1 font-semibold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[13px] text-primary">tag</span>
+                    Skills:
+                  </span>
+                  <span
+                    class="px-2.5 py-1 bg-tag-bg border border-tag-border rounded-md text-xs font-mono text-accent hover:border-primary/50 transition-colors duration-150 cursor-default">
+                    LLM Evaluation
+                  </span>
+                  <span
+                    class="px-2.5 py-1 bg-tag-bg border border-tag-border rounded-md text-xs font-mono text-accent hover:border-primary/50 transition-colors duration-150 cursor-default">
+                    Prompt Engineering
+                  </span>
+                  <span
+                    class="px-2.5 py-1 bg-tag-bg border border-tag-border rounded-md text-xs font-mono text-accent hover:border-primary/50 transition-colors duration-150 cursor-default">
+                    Data Annotation
+                  </span>
+                  <span
+                    class="px-2.5 py-1 bg-tag-bg border border-tag-border rounded-md text-xs font-mono text-accent hover:border-primary/50 transition-colors duration-150 cursor-default">
+                    Text-to-Image Evaluation
+                  </span>
+                  <span
+                    class="px-2.5 py-1 bg-tag-bg border border-tag-border rounded-md text-xs font-mono text-accent hover:border-primary/50 transition-colors duration-150 cursor-default">
+                    Model Fine-tuning
+                  </span>
+                </div>
+
+              </article>
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- EXPERIENCE 2: TSB Technologies                                  -->
+            <!-- =============================================================== -->
+            <div class="relative pl-7 sm:pl-10 md:pl-16 pb-2 group exp-reveal exp-delay-2">
+              <!-- Glowing Timeline Node Marker -->
+              <div class="absolute left-0 sm:left-2 md:left-4 -translate-x-1/2 top-1.5 flex flex-col items-center">
+                <div
+                  class="exp-node-beacon w-8 h-8 rounded-full bg-surface-card border-2 border-primary/60 flex items-center justify-center shadow-md shadow-primary/20"
+                  title="Computer Vision &amp; Perception">
+                  <span class="material-symbols-outlined text-primary text-[16px]">visibility</span>
+                </div>
+              </div>
+
+              <!-- Experience Card Container with 3D micro-tilt -->
+              <article class="exp-card p-6 sm:p-8">
+
+                <!-- Header: Initials Logo, Role, Company & Period -->
+                <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
+                  <div class="flex items-start gap-4">
+                    <!-- Company Initials Placeholder Logo -->
+                    <div
+                      class="w-12 h-12 rounded-xl bg-surface border border-accent-violet/40 flex items-center justify-center font-mono font-bold text-sm text-accent shadow-sm shrink-0"
+                      aria-label="TSB Technologies Logo">
+                      TSB
+                    </div>
+
+                    <!-- Role Title & Company / Category -->
+                    <div>
+                      <h3
+                        class="font-headline text-lg sm:text-xl font-bold text-white group-hover:text-primary transition-colors">
+                        AI Intern
+                      </h3>
+                      <div class="flex flex-wrap items-center gap-2 mt-1">
+                        <span class="font-medium text-sm sm:text-base text-text-primary">TSB Technologies</span>
+                        <span class="inline-block w-1 h-1 rounded-full bg-card-border"></span>
+                        <span class="font-mono text-xs text-primary flex items-center gap-1">
+                          <span class="material-symbols-outlined text-[14px]">visibility</span>
+                          Computer Vision &amp; Perception
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Date Badge & Employment Type -->
+                  <div
+                    class="flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-1.5 shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-card-border/60">
+                    <span
+                      class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-surface border border-card-border font-mono text-xs text-accent font-medium">
+                      <span class="material-symbols-outlined text-[14px] text-primary">calendar_month</span>
+                      July–August 2026
+                    </span>
+                    <span class="font-mono text-[11px] text-text-muted tracking-wider uppercase">Internship</span>
+                  </div>
+                </div>
+
+                <!-- Subtle Separator -->
+                <div class="h-px w-full bg-card-border/60 mb-5"></div>
+
+                <!-- Responsibilities & Measurable Impact -->
+                <div class="space-y-3 mb-6">
+                  <h4 class="font-mono text-[11px] uppercase tracking-wider text-text-muted font-semibold">
+                    Key Responsibilities &amp; Impact
+                  </h4>
+                  <ul class="space-y-2.5 font-body text-sm sm:text-base text-text-secondary leading-relaxed">
+                    <li class="exp-bullet-item flex items-start gap-3">
+                      <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5 select-none"
+                        aria-hidden="true">check_circle</span>
+                      <span class="text-text-secondary leading-relaxed">Evaluated image datasets for vehicle detection,
+                        classifying vehicle presence or absence and rating image quality against defined
+                        standards.</span>
+                    </li>
+                    <li class="exp-bullet-item flex items-start gap-3">
+                      <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5 select-none"
+                        aria-hidden="true">check_circle</span>
+                      <span class="text-text-secondary leading-relaxed">Authored descriptive prompts capturing image
+                        content for vision-model training and evaluation datasets.</span>
+                    </li>
+                    <li class="exp-bullet-item flex items-start gap-3">
+                      <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5 select-none"
+                        aria-hidden="true">check_circle</span>
+                      <span class="text-text-secondary leading-relaxed">Ensured data-labeling accuracy and consistency
+                        across large image batches.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Relevant Skill Tags -->
+                <div class="pt-4 border-t border-card-border/60 flex flex-wrap items-center gap-2">
+                  <span
+                    class="font-mono text-[11px] uppercase tracking-wider text-text-muted mr-1 font-semibold flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[13px] text-primary">tag</span>
+                    Skills:
+                  </span>
+                  <span
+                    class="px-2.5 py-1 bg-tag-bg border border-tag-border rounded-md text-xs font-mono text-accent hover:border-primary/50 transition-colors duration-150 cursor-default">
+                    Artificial Intelligence
+                  </span>
+                  <span
+                    class="px-2.5 py-1 bg-tag-bg border border-tag-border rounded-md text-xs font-mono text-accent hover:border-primary/50 transition-colors duration-150 cursor-default">
+                    Computer Vision
+                  </span>
+                  <span
+                    class="px-2.5 py-1 bg-tag-bg border border-tag-border rounded-md text-xs font-mono text-accent hover:border-primary/50 transition-colors duration-150 cursor-default">
+                    Image Annotation
+                  </span>
+                  <span
+                    class="px-2.5 py-1 bg-tag-bg border border-tag-border rounded-md text-xs font-mono text-accent hover:border-primary/50 transition-colors duration-150 cursor-default">
+                    Dataset Evaluation
+                  </span>
+                  <span
+                    class="px-2.5 py-1 bg-tag-bg border border-tag-border rounded-md text-xs font-mono text-accent hover:border-primary/50 transition-colors duration-150 cursor-default">
+                    Prompt Writing
+                  </span>
+                </div>
+
+              </article>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- 6. FEATURED PROJECTS (Two-Column Showcase with Real Previews)           -->
+    <!-- ======================================================================= -->
+    <section class="py-16 md:py-24 border-b border-card-border/60 bg-surface relative" id="projects">
+      <div class="w-full max-w-max-container mx-auto px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center mb-12 md:mb-16">
+          <p class="font-mono text-xs sm:text-sm text-primary tracking-widest uppercase font-semibold mb-2">
+            // SELECTED WORK
+          </p>
+          <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-3">
+            Featured Projects
+          </h2>
+          <p class="font-body text-sm sm:text-base text-text-secondary max-w-xl mx-auto">
+            A showcase of production-ready applications, automated systems, and machine learning models built with
+            modern software architecture.
+          </p>
+        </div>
+
+        <!-- Responsive Two-Column Project Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10">
+
+          <!-- =================================================================== -->
+          <!-- PROJECT 1: CareQueue — Clinic Appointment & Queue System (Jun 2026) -->
+          <!-- =================================================================== -->
+          <article
+            class="bg-surface-card border border-card-border rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:border-card-border-hover hover:shadow-2xl flex flex-col group">
+
+            <!-- A. Landscape 16:9 Screenshot -->
+            <div class="aspect-video w-full overflow-hidden bg-canvas relative border-b border-card-border/60">
+              <img src="assets/img/project-attendance.jpg" alt="CareQueue — Clinic Appointment &amp; Queue Management System"
+                class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                loading="lazy" />
+              <div class="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full bg-surface-card/90 backdrop-blur-md border border-primary/40 font-mono text-[11px] text-accent font-semibold flex items-center gap-1.5 shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                <span>Jun 2026</span>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-6 sm:p-8 flex flex-col flex-grow">
+
+              <!-- B. Project Title -->
+              <h3
+                class="font-headline text-xl sm:text-2xl font-bold text-white mb-1.5 group-hover:text-primary transition-colors">
+                CareQueue — Clinic Appointment &amp; Queue System
+              </h3>
+
+              <!-- C. Project Subtitle -->
+              <p class="font-mono text-xs text-primary font-medium tracking-wide mb-3.5">
+                Full-Stack Clinic Appointment &amp; Live Queue Management System
+              </p>
+
+              <!-- D. Project Description -->
+              <p class="font-body text-sm text-text-secondary leading-relaxed mb-5">
+                Built a full-stack clinic appointment and queue management system using React, TypeScript, Express, and MySQL with role-based patient/staff access. Designed a normalized MySQL schema preventing double-booking using transactional row-level locking, and implemented a real-time queue dashboard with live token calling.
+              </p>
+
+              <!-- Key Resume Highlights -->
+              <ul class="space-y-2 mb-6 font-body text-xs sm:text-[13px] text-text-muted">
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-primary text-[15px] shrink-0 mt-0.5">check_circle</span>
+                  <span>Full-stack architecture with role-based patient and staff access controls.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-primary text-[15px] shrink-0 mt-0.5">check_circle</span>
+                  <span>Normalized MySQL schema with transactional row-level locking to prevent double-booking.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="material-symbols-outlined text-primary text-[15px] shrink-0 mt-0.5">check_circle</span>
+                  <span>Live token calling interface, status tracking, and clinic operational metrics.</span>
+                </li>
+              </ul>
+
+              <!-- E. Technologies Used -->
+              <div class="pt-5 border-t border-card-border/70 space-y-3 mb-6">
+                <span class="font-mono text-[11px] text-text-muted uppercase tracking-wider font-semibold block mb-1">
+                  Technologies Used
+                </span>
+
+                <!-- Frontend -->
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-secondary w-24 shrink-0 font-medium">Frontend:</span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="px-2.5 py-1 rounded-md bg-surface border border-card-border/80 font-mono text-xs text-text-primary flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#61dafb]"></span>
+                      React.js
+                    </span>
+                    <span class="px-2.5 py-1 rounded-md bg-surface border border-card-border/80 font-mono text-xs text-text-primary flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#3178c6]"></span>
+                      TypeScript
+                    </span>
+                    <span class="px-2.5 py-1 rounded-md bg-surface border border-card-border/80 font-mono text-xs text-text-primary flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#38bdf8]"></span>
+                      Tailwind CSS
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-secondary w-24 shrink-0 font-medium">Backend:</span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="px-2.5 py-1 rounded-md bg-surface border border-card-border/80 font-mono text-xs text-text-primary flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#ffffff]"></span>
+                      Express.js
+                    </span>
+                    <span class="px-2.5 py-1 rounded-md bg-surface border border-card-border/80 font-mono text-xs text-text-primary flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#5fa04e]"></span>
+                      Node.js
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Database -->
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-secondary w-24 shrink-0 font-medium">Database:</span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="px-2.5 py-1 rounded-md bg-surface border border-card-border/80 font-mono text-xs text-text-primary flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#00758f]"></span>
+                      MySQL (Row Locking)
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- F. Project Action Links -->
+              <div class="pt-4 mt-auto border-t border-card-border/60 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <a href="#contact"
+                    class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-primary hover:text-accent transition-colors group/link">
+                    <span>Inquire Project</span>
+                    <span
+                      class="material-symbols-outlined text-[15px] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform">arrow_outward</span>
+                  </a>
+                  <a href="https://github.com/Keerthi-thallam" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 font-mono text-xs font-medium text-text-secondary hover:text-white transition-colors group/link">
+                    <span class="material-symbols-outlined text-[15px]">code</span>
+                    <span>GitHub Code</span>
+                  </a>
+                </div>
+                <span class="font-mono text-xs text-text-muted">01 / 03</span>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- =================================================================== -->
+          <!-- PROJECT 2: TaskFlow — Responsive Workflow & Board Management (May 2026) -->
+          <!-- =================================================================== -->
+          <article
+            class="bg-surface-card border border-card-border rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:border-card-border-hover hover:shadow-2xl flex flex-col group">
+
+            <!-- A. Landscape 16:9 Screenshot -->
+            <div class="aspect-video w-full overflow-hidden bg-canvas relative border-b border-card-border/60">
+              <img src="assets/img/project-ecommerce.jpg"
+                alt="TaskFlow — Responsive Workflow and Board Management Application"
+                class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                loading="lazy" />
+              <div class="absolute top-3.5 right-3.5 px-2.5 py-1 rounded-full bg-surface-card/90 backdrop-blur-md border border-primary/40 font-mono text-[11px] text-accent font-semibold flex items-center gap-1.5 shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                <span>May 2026</span>
+              </div>
+            </div>
+
+            <!-- Card Body -->
+            <div class="p-6 sm:p-8 flex flex-col flex-grow">
+
+              <!-- B. Project Title -->
+              <h3
+                class="font-headline text-xl sm:text-2xl font-bold text-white mb-1.5 group-hover:text-primary transition-colors">
+                TaskFlow — Workflow &amp; Task Management
+              </h3>
+
+              <!-- C. Project Subtitle -->
+              <p class="font-mono text-xs text-primary font-medium tracking-wide mb-3.5">
+                Responsive Task Coordination &amp; Role-Based Boards
+              </p>
+
+              <!-- D. Project Description -->
+              <p class="font-body text-sm text-text-secondary leading-relaxed mb-4">
+                Designed and developed an intuitive, responsive web application for streamlined task and workflow management. Prototyped interactive UI/UX designs in Figma prioritizing usability, component reusability, and clean visual hierarchy.
+              </p>
+
+              <!-- Bullet Points from Resume -->
+              <ul class="text-xs text-text-muted space-y-1.5 mb-6 list-disc list-inside">
+                <li>Engineered modular, reusable React components with real-time UI state.</li>
+                <li>Built Express REST endpoints for seamless task CRUD and role-based board views.</li>
+              </ul>
+
+              <!-- E. Technologies Used (Categorized Rows with Recognizable SVG Icons) -->
+              <div class="pt-5 border-t border-card-border/70 space-y-3 mb-6">
+                <span class="font-mono text-[11px] text-text-muted uppercase tracking-wider font-semibold block mb-1">
+                  Technologies Used
+                </span>
+
+                <!-- Row 1: Frontend -->
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-secondary w-24 shrink-0 font-medium">Frontend:</span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <!-- React -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="React.js" aria-label="React.js">
+                      <svg class="w-4 h-4 shrink-0" viewBox="-11.5 -10.23174 23 20.46348">
+                        <circle cx="0" cy="0" r="2.05" fill="#61dafb" />
+                        <g stroke="#61dafb" stroke-width="1" fill="none">
+                          <ellipse rx="11" ry="4.2" />
+                          <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+                          <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+                        </g>
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">React</span>
+                    </div>
+
+                    <!-- Tailwind CSS -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="Tailwind CSS" aria-label="Tailwind CSS">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="#06B6D4">
+                        <path
+                          d="M12 6c-4 0-6.5 2-7.5 6 1.5-2 3.5-2.5 5.5-1.5 1.2.6 2 1.5 3 2.5 1.5 1.6 3.4 3.5 7 3.5 4 0 6.5-2 7.5-6-1.5 2-3.5 2.5-5.5 1.5-1.2-.6-2-1.5-3-2.5-1.5-1.6-3.4-3.5-7-3.5zM4.5 14C3 15 1.5 16 0 18c1.5-1.5 3-2 4.5-1.5 1 .3 1.8 1 2.5 1.8 1.2 1.2 2.5 2.5 5 2.7-3 .5-5-1-7.5-7z" />
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">Tailwind CSS</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Row 2: Backend -->
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-secondary w-24 shrink-0 font-medium">Backend:</span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <!-- Express.js -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="Express.js" aria-label="Express.js">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="#fafafa">
+                        <path
+                          d="M5.5 8h2l2 4 2-4h2l-3 5.5L13.5 19h-2L9.5 15l-2 4h-2l3-5.5L5.5 8zm10 0h3v2h-3v2h2.5v2H15.5v3h3v2h-5V8z" />
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">Express.js</span>
+                    </div>
+
+                    <!-- Node.js -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="Node.js" aria-label="Node.js">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="#339933">
+                        <path d="M12 2l10 5.75v10.5L12 24 2 18.25V7.75L12 2zm0 2.3L4 8.9v8.2l8 4.6 8-4.6V8.9l-8-4.6z" />
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">Node.js</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Row 3: Design & UX -->
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-secondary w-24 shrink-0 font-medium">Design:</span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <!-- Figma -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="Figma UI/UX Design" aria-label="Figma UI/UX Design">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                        <path fill="#0ACF83" d="M12 12a3 3 0 1 1 3 3h-3v-3z"/>
+                        <path fill="#A259FF" d="M9 12a3 3 0 1 1-3-3h3v3z"/>
+                        <path fill="#F24E1E" d="M9 6a3 3 0 1 1-3-3h3v3z"/>
+                        <path fill="#FF7262" d="M12 3h3a3 3 0 1 1 0 6h-3V3z"/>
+                        <path fill="#1ABCFE" d="M9 18a3 3 0 1 1-3-3h3v3z"/>
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">Figma</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Row 4: Tools -->
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-secondary w-24 shrink-0 font-medium">Tools:</span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <!-- Git -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="Git" aria-label="Git">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="#F05032">
+                        <path
+                          d="M21.7 10.7L13.3 2.3c-.4-.4-1-.4-1.4 0L9.5 4.7l2.8 2.8c.4-.1.9 0 1.2.3.5.5.5 1.3 0 1.8-.3.3-.8.5-1.2.4L9.5 12.8v4.2c.4.2.7.5.8.9.3.8-.1 1.8-.9 2.1-.8.3-1.8-.1-2.1-.9-.3-.8.1-1.8.9-2.1v-4.2c-.4-.2-.7-.5-.8-.9-.3-.8.1-1.8.9-2.1.3-.1.6-.1.8 0L6.3 7.8 2.3 11.8c-.4.4-.4 1 0 1.4l8.4 8.4c.4.4 1 .4 1.4 0l9.6-9.5c.4-.4.4-1 0-1.4z" />
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">Git</span>
+                    </div>
+
+                    <!-- GitHub -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="GitHub" aria-label="GitHub">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="#fafafa">
+                        <path
+                          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">GitHub</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- F. Project Action Links -->
+              <div class="pt-4 mt-auto border-t border-card-border/60 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <a href="#contact"
+                    class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-primary hover:text-accent transition-colors group/link">
+                    <span>Inquire Project</span>
+                    <span
+                      class="material-symbols-outlined text-[15px] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform">arrow_outward</span>
+                  </a>
+                  <a href="https://github.com/Keerthi-thallam" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 font-mono text-xs font-medium text-text-secondary hover:text-white transition-colors group/link">
+                    <span class="material-symbols-outlined text-[15px]">code</span>
+                    <span>GitHub Code</span>
+                  </a>
+                </div>
+                <span class="font-mono text-xs text-text-muted">02 / 03</span>
+              </div>
+
+            </div>
+          </article>
+
+          <!-- =================================================================== -->
+          <!-- PROJECT 3: Medical Insurance Cost Prediction (Nov–Dec 2025)         -->
+          <!-- =================================================================== -->
+          <article
+            class="lg:col-span-2 bg-surface-card border border-card-border rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:border-card-border-hover hover:shadow-2xl flex flex-col md:flex-row group">
+
+            <!-- A. Left Image / Analytics Screenshot (Desktop 42% width, Mobile 16:9) -->
+            <div class="md:w-5/12 aspect-video md:aspect-auto overflow-hidden bg-canvas relative border-b md:border-b-0 md:border-r border-card-border/60">
+              <img src="assets/img/project-stock.jpg"
+                alt="Medical Insurance Cost Prediction Machine Learning Analytics Interface"
+                class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                loading="lazy" />
+              <div class="absolute top-3.5 left-3.5 px-2.5 py-1 rounded-full bg-surface-card/90 backdrop-blur-md border border-primary/40 font-mono text-[11px] text-accent font-semibold flex items-center gap-1.5 shadow-sm">
+                <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                <span>Nov – Dec 2025</span>
+              </div>
+            </div>
+
+            <!-- Card Body (Desktop 58% width) -->
+            <div class="md:w-7/12 p-6 sm:p-8 flex flex-col flex-grow">
+
+              <!-- B. Project Title -->
+              <h3
+                class="font-headline text-xl sm:text-2xl font-bold text-white mb-1.5 group-hover:text-primary transition-colors">
+                Medical Insurance Cost Prediction using Machine Learning
+              </h3>
+
+              <!-- C. Project Subtitle -->
+              <p class="font-mono text-xs text-primary font-medium tracking-wide mb-3.5">
+                Predictive Regression Modeling &amp; Healthcare Risk Cost Analytics
+              </p>
+
+              <!-- D. Project Description -->
+              <p class="font-body text-sm text-text-secondary leading-relaxed mb-4">
+                Built a high-precision predictive regression model to estimate individual medical insurance costs based on demographic and health features including age, BMI, smoking status, and region.
+              </p>
+
+              <!-- Bullet Points from Resume -->
+              <ul class="text-xs text-text-muted space-y-1.5 mb-6 list-disc list-inside">
+                <li>Performed comprehensive exploratory data analysis (EDA), feature encoding, correlation analysis, and hyperparameter tuning to improve accuracy.</li>
+                <li>Evaluated models using MAE, RMSE, and R² score; identified key cost drivers such as smoking status and BMI using Random Forest and XGBoost.</li>
+              </ul>
+
+              <!-- E. Technologies Used (Categorized Rows with Recognizable SVG Icons) -->
+              <div class="pt-5 border-t border-card-border/70 space-y-3 mb-6">
+                <span class="font-mono text-[11px] text-text-muted uppercase tracking-wider font-semibold block mb-1">
+                  Technologies Used
+                </span>
+
+                <!-- Row 1: Core & ML -->
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-secondary w-24 shrink-0 font-medium">Core &amp; ML:</span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <!-- Python -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="Python 3" aria-label="Python 3">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                        <path fill="#3776AB"
+                          d="M11.9 2c-4.2 0-3.9 1.8-3.9 1.8l.1 1.9h4V7H4.3S2 6.8 2 11c0 4.3 2 4.1 2 4.1h1.2v-1.7s-.1-2 2-2h6.8s1.9.1 1.9-1.9V4s.4-2-4-2zm-2.2 1.4a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6z" />
+                        <path fill="#FFD43B"
+                          d="M12.1 22c4.2 0 3.9-1.8 3.9-1.8l-.1-1.9h-4V17h7.8s2.3.2 2.3-4c0-4.3-2-4.1-2-4.1h-1.2v1.7s.1 2-2 2H10s-1.9-.1-1.9 1.9V20s-.4 2 4 2zm2.2-1.4a.8.8 0 1 1 0-1.6.8.8 0 0 1 0 1.6z" />
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">Python</span>
+                    </div>
+
+                    <!-- Scikit-learn -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="Scikit-Learn" aria-label="Scikit-Learn">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="#F7931E">
+                        <circle cx="8" cy="8" r="4" fill="#3499CD" />
+                        <circle cx="16" cy="16" r="4" fill="#F7931E" />
+                        <path d="M8 12l8 4M12 8l4 8" stroke="#fafafa" stroke-width="1.5" />
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">Scikit-learn</span>
+                    </div>
+
+                    <!-- Random Forest & XGBoost -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center px-2 py-1 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default font-mono text-[11px] text-accent"
+                      title="Random Forest &amp; XGBoost" aria-label="Random Forest &amp; XGBoost">
+                      <span>Random Forest · XGBoost</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Row 2: Data & Viz -->
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-secondary w-24 shrink-0 font-medium">Data &amp; Viz:</span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <!-- NumPy -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="NumPy" aria-label="NumPy">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="#013243">
+                        <path d="M12 2l9 5v10l-9 5-9-5V7l9-5zm0 2.2L5 8.7v6.6l7 3.9 7-3.9V8.7L12 4.2zm-1 5.3h2v5h-2v-5z"
+                          fill="#4DABCF" />
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">NumPy</span>
+                    </div>
+
+                    <!-- Pandas -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="Pandas" aria-label="Pandas">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                        <rect x="4" y="4" width="4" height="16" fill="#150458" rx="1" />
+                        <rect x="10" y="8" width="4" height="12" fill="#E70488" rx="1" />
+                        <rect x="16" y="2" width="4" height="18" fill="#FFD43B" rx="1" />
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">Pandas</span>
+                    </div>
+
+                    <!-- Matplotlib -->
+                    <div
+                      class="relative group/tech inline-flex items-center justify-center p-1.5 rounded-lg bg-surface border border-card-border/80 hover:border-primary/60 hover:bg-surface-card transition-all cursor-default"
+                      title="EDA &amp; Data Visualization" aria-label="EDA &amp; Data Visualization">
+                      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="#11557c">
+                        <circle cx="12" cy="12" r="9" stroke="#11557c" stroke-width="2" fill="none" />
+                        <path d="M7 15l3-6 4 4 3-5" stroke="#FFD43B" stroke-width="2" fill="none" stroke-linecap="round" />
+                      </svg>
+                      <span
+                        class="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-canvas text-white text-[10px] font-mono rounded border border-card-border opacity-0 group-hover/tech:opacity-100 pointer-events-none transition-opacity shadow-lg whitespace-nowrap z-30">EDA / Viz</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Row 3: Metrics & Evaluation -->
+                <div class="flex items-center gap-3">
+                  <span class="font-mono text-xs text-text-secondary w-24 shrink-0 font-medium">Metrics:</span>
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <span class="px-2 py-0.5 rounded bg-surface border border-card-border/80 font-mono text-[11px] text-text-secondary">MAE</span>
+                    <span class="px-2 py-0.5 rounded bg-surface border border-card-border/80 font-mono text-[11px] text-text-secondary">RMSE</span>
+                    <span class="px-2 py-0.5 rounded bg-surface border border-card-border/80 font-mono text-[11px] text-text-secondary">R² Score</span>
+                    <span class="px-2 py-0.5 rounded bg-surface border border-card-border/80 font-mono text-[11px] text-text-secondary">Hyperparameter Tuning</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- F. Project Action Links -->
+              <div class="pt-4 mt-auto border-t border-card-border/60 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                  <a href="#contact"
+                    class="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-primary hover:text-accent transition-colors group/link">
+                    <span>Inquire Project</span>
+                    <span
+                      class="material-symbols-outlined text-[15px] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform">arrow_outward</span>
+                  </a>
+                  <a href="https://github.com/Keerthi-thallam" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-1.5 font-mono text-xs font-medium text-text-secondary hover:text-white transition-colors group/link">
+                    <span class="material-symbols-outlined text-[15px]">code</span>
+                    <span>GitHub Code</span>
+                  </a>
+                </div>
+                <span class="font-mono text-xs text-text-muted">03 / 03</span>
+              </div>
+
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- 7. CONTACT SECTION (Minimal Framer-Inspired)                            -->
+    <!-- ======================================================================= -->
+    <section class="py-20 md:py-28 border-b border-card-border/60 bg-canvas relative overflow-hidden" id="contact">
+
+      <!-- Subtle ambient purple lighting blooms -->
+      <div class="absolute -top-32 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+      <div
+        class="absolute -bottom-32 left-1/4 w-80 h-80 bg-accent-violet/10 rounded-full blur-3xl pointer-events-none -z-10">
+      </div>
+
+      <div class="w-full max-w-max-container mx-auto px-6 lg:px-8 relative z-10">
+
+        <!-- Animated Neon Border Contact Card -->
+        <div class="contact-card p-8 sm:p-10 lg:p-14" id="contact-card">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+            <!-- Left Column: Typography & Primary Action -->
+            <div class="lg:col-span-6 space-y-6">
+
+              <!-- Live Availability Chip -->
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tag-bg border border-tag-border">
+                <span class="relative flex h-2 w-2">
+                  <span
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                <span class="font-mono text-xs text-accent font-medium tracking-wide">Available for Opportunities</span>
+              </div>
+
+              <!-- Framer-Inspired Editorial Heading -->
+              <h2
+                class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight text-balance">
+                Let's build something meaningful.
+              </h2>
+
+              <!-- Editorial Description -->
+              <p class="font-body text-base sm:text-lg text-text-secondary max-w-xl leading-relaxed">
+                Have an opportunity or an interesting project in mind? I'm interested in AI, machine learning, LLM
+                evaluation, and software development. Let's connect.
+              </p>
+
+              <!-- Context Meta Tags -->
+              <div
+                class="flex items-center gap-4 text-text-muted font-mono text-xs pt-4 border-t border-card-border/60">
+                <span class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-primary text-[15px]">schedule</span>
+                  &lt; 24h Response
+                </span>
+                <span class="inline-block w-1 h-1 rounded-full bg-card-border"></span>
+                <span class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-primary text-[15px]">location_on</span>
+                  UTC+05:30 (IST) · Remote Ready
+                </span>
+              </div>
+
+            </div>
+
+            <!-- Right Column: Minimal Interactive Contact Links List -->
+            <div class="lg:col-span-6 space-y-3">
+
+              <!-- 1. Email Me -->
+              <a id="email-cta-button"
+                href="mailto:keerthithallam8@gmail.com?subject=Hello%20Keerthi%20%E2%80%94%20Project%20Inquiry"
+                data-email="keerthithallam8@gmail.com"
+                class="group flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-surface border border-card-border hover:border-card-border-hover hover:bg-surface-card-hover transition-all duration-200 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-canvas cursor-pointer"
+                aria-label="Email Keerthi: keerthithallam8@gmail.com (Click to copy address & open mail client)"
+                title="Click to copy keerthithallam8@gmail.com & launch mail app">
+                <div class="flex items-center gap-3.5">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-canvas border border-card-border group-hover:border-primary/50 flex items-center justify-center text-primary group-hover:neon-glow-sm transition-all duration-200 motion-reduce:transition-none shrink-0">
+                    <span class="material-symbols-outlined text-[20px]">alternate_email</span>
+                  </div>
+                  <div>
+                    <div
+                      class="font-headline font-semibold text-sm sm:text-base text-white group-hover:text-primary transition-colors">
+                      Email Me
+                    </div>
+                    <div class="font-mono text-xs text-text-muted group-hover:text-text-secondary transition-colors">
+                      keerthithallam8@gmail.com
+                    </div>
+                  </div>
+                </div>
+                <div id="email-cta-badge"
+                  class="flex items-center gap-1.5 font-mono text-xs text-text-muted group-hover:text-primary transition-colors">
+                  <span id="email-cta-text" class="hidden sm:inline">Send Mail</span>
+                  <span id="email-cta-icon"
+                    class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0 transition-transform">arrow_outward</span>
+                </div>
+              </a>
+
+              <!-- 2. LinkedIn -->
+              <a href="https://www.linkedin.com/in/thallam-venkata-keerthi/" target="_blank" rel="noopener noreferrer"
+                class="group flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-surface border border-card-border hover:border-card-border-hover hover:bg-surface-card-hover transition-all duration-200 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+                aria-label="LinkedIn Profile">
+                <div class="flex items-center gap-3.5">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-canvas border border-card-border group-hover:border-primary/50 flex items-center justify-center text-primary group-hover:neon-glow-sm transition-all duration-200 motion-reduce:transition-none shrink-0">
+                    <span class="material-symbols-outlined text-[20px]">hub</span>
+                  </div>
+                  <div>
+                    <div
+                      class="font-headline font-semibold text-sm sm:text-base text-white group-hover:text-primary transition-colors">
+                      LinkedIn
+                    </div>
+                    <div class="font-mono text-xs text-text-muted group-hover:text-text-secondary transition-colors">
+                      Connect professionally
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-1.5 font-mono text-xs text-text-muted group-hover:text-primary transition-colors">
+                  <span class="hidden sm:inline">Connect</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0 transition-transform">arrow_outward</span>
+                </div>
+              </a>
+
+              <!-- 3. GitHub -->
+              <a href="https://github.com/Keerthi-thallam" target="_blank" rel="noopener noreferrer"
+                class="group flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-surface border border-card-border hover:border-card-border-hover hover:bg-surface-card-hover transition-all duration-200 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+                aria-label="GitHub Profile: @Keerthi-thallam">
+                <div class="flex items-center gap-3.5">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-canvas border border-card-border group-hover:border-primary/50 flex items-center justify-center text-primary group-hover:neon-glow-sm transition-all duration-200 motion-reduce:transition-none shrink-0">
+                    <span class="material-symbols-outlined text-[20px]">code</span>
+                  </div>
+                  <div>
+                    <div
+                      class="font-headline font-semibold text-sm sm:text-base text-white group-hover:text-primary transition-colors">
+                      GitHub
+                    </div>
+                    <div class="font-mono text-xs text-text-muted group-hover:text-text-secondary transition-colors">
+                      github.com/Keerthi-thallam
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-1.5 font-mono text-xs text-text-muted group-hover:text-primary transition-colors">
+                  <span class="hidden sm:inline">Repositories</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0 transition-transform">arrow_outward</span>
+                </div>
+              </a>
+
+              <!-- 4. View Resume -->
+              <a href="assets/img/ai.pdf" target="_blank" rel="noopener noreferrer"
+                class="group flex items-center justify-between p-4 sm:p-5 rounded-2xl bg-surface border border-card-border hover:border-card-border-hover hover:bg-surface-card-hover transition-all duration-200 motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-canvas"
+                aria-label="View and Download Resume (ai.pdf)">
+                <div class="flex items-center gap-3.5">
+                  <div
+                    class="w-10 h-10 rounded-xl bg-canvas border border-card-border group-hover:border-primary/50 flex items-center justify-center text-primary group-hover:neon-glow-sm transition-all duration-200 motion-reduce:transition-none shrink-0">
+                    <span class="material-symbols-outlined text-[20px]">description</span>
+                  </div>
+                  <div>
+                    <div
+                      class="font-headline font-semibold text-sm sm:text-base text-white group-hover:text-primary transition-colors">
+                      View Resume
+                    </div>
+                    <div class="font-mono text-xs text-text-muted group-hover:text-text-secondary transition-colors">
+                      PDF document · ai.pdf
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center gap-1.5 font-mono text-xs text-text-muted group-hover:text-primary transition-colors">
+                  <span class="hidden sm:inline">Open PDF</span>
+                  <span
+                    class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 motion-reduce:group-hover:translate-x-0 motion-reduce:group-hover:translate-y-0 transition-transform">arrow_outward</span>
+                </div>
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- 8. FOOTER                                                                 -->
+  <!-- ========================================================================= -->
+  <footer class="py-8 bg-canvas border-t border-card-border/60">
+    <div
+      class="w-full max-w-max-container mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
+      <div class="flex items-center gap-2">
+        <a class="font-headline font-semibold text-white tracking-tight flex items-center gap-1" href="#hero">
+          <span class="text-primary">&lt;</span>
+          <span>Keerthi</span>
+          <span class="text-accent">/&gt;</span>
+        </a>
+        <span class="text-card-border">|</span>
+        <span class="text-text-muted">© 2026 Keerthi. Handcrafted with semantic modern engineering. Built with zero
+          raster dependencies.</span>
+      </div>
+
+      <div class="flex items-center gap-4 text-text-secondary">
+        <a class="hover:text-primary transition-colors" href="https://github.com/Keerthi-thallam" rel="noopener noreferrer"
+          target="_blank">GitHub</a>
+        <a class="hover:text-primary transition-colors" href="https://www.linkedin.com/in/thallam-venkata-keerthi/" rel="noopener noreferrer"
+          target="_blank">LinkedIn</a>
+        <a class="hover:text-primary transition-colors" href="https://x.com" rel="noopener noreferrer"
+          target="_blank">Twitter / X</a>
+        <a class="text-primary hover:text-accent font-semibold" href="#hero">Return to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Toast Notification Container (a11y accessible, non-blocking) -->
+  <div id="toast-container"
+    class="fixed bottom-6 right-6 z-[9999] pointer-events-none flex flex-col gap-3 max-w-sm sm:max-w-md w-[calc(100%-3rem)] sm:w-auto"
+    aria-live="polite" role="status"></div>
+
+  <!-- Reusable Experience Component & Main Interactive Scripts -->
+  <script src="assets/js/experience.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/hero-animation.js"></script>
+  <script src="assets/js/about-animation.js"></script>
+  <script src="assets/js/skills-animation.js"></script>
+  <script src="assets/js/experience-animation.js"></script>
+</body>
+
 </html>
