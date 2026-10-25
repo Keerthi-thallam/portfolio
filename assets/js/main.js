@@ -244,5 +244,160 @@ if (typeof window !== "undefined" && typeof document !== "undefined") {
 
     // Expose showToast globally for reuse
     window.showToast = showToast;
+
+    // =========================================================================
+    // CareQueue Multi-View & High-Res Lightbox Inspector
+    // =========================================================================
+    function initCareQueueShowcase() {
+      const tabDual = document.getElementById("cq-tab-dual");
+      const tabAdmin = document.getElementById("cq-tab-admin");
+      const tabPatient = document.getElementById("cq-tab-patient");
+      const viewDual = document.getElementById("cq-view-dual");
+      const viewSingle = document.getElementById("cq-view-single");
+      const singleImg = document.getElementById("cq-single-img");
+      const singleTitle = document.getElementById("cq-single-title");
+      const singleUrl = document.getElementById("cq-single-url");
+      const singleBadge = document.getElementById("cq-single-badge");
+      const singleDesc = document.getElementById("cq-single-desc");
+
+      const viewsData = {
+        admin: {
+          src: "assets/img/carequeue-admin.png",
+          alt: "CareQueue Staff Administration Dashboard — Real-Time Queue & Token Calling",
+          title: "CareQueue — Staff Administration & Real-Time Queue Command Center",
+          url: "http://localhost:3001/admin",
+          badge: "Staff Admin · 2 Waiting in Clinic",
+          desc: "Live relational operational console showing active token calling (Devon Miller A-102), real-time check-in counters (Total 6, Waiting 2, Avg Wait 14m), and full MySQL appointments schedule table."
+        },
+        patient: {
+          src: "assets/img/carequeue-patient.png",
+          alt: "CareQueue Patient Web Portal — Online Appointment Booking & ACID Lock",
+          title: "CareQueue — Patient Self-Service Booking & Live Queue Pass Portal",
+          url: "http://localhost:3001/patient-portal",
+          badge: "Patient Web · MySQL ACID Row Locking",
+          desc: "Self-service booking wizard: specialist selector (Dr. Sarah Chen, Dr. Marcus Vance), consultation selection, and transactional row-level locking (SELECT ... FOR UPDATE) preventing duplicate bookings under high concurrency."
+        },
+        taskflow: {
+          src: "assets/img/taskflow-dashboard.png",
+          alt: "TaskFlow Sprint Matrix — Real-Time Workflow & Board Management Application",
+          title: "TaskFlow — Active Sprint Matrix & Execution Dashboard",
+          url: "http://localhost:3000/sprint-matrix",
+          badge: "Sprint Matrix · Real-Time Workflow",
+          desc: "Full-stack sprint execution board featuring real-time task dispatch, velocity metrics (29% velocity), SLA throughput monitoring, and role-based backlog coordination."
+        }
+      };
+
+      function setActiveTab(active) {
+        [tabDual, tabAdmin, tabPatient].forEach(btn => {
+          if (!btn) return;
+          btn.classList.remove("bg-primary", "text-canvas", "font-bold", "shadow-[0_0_15px_rgba(220,149,255,0.4)]");
+          btn.classList.add("text-text-secondary", "hover:text-white", "hover:bg-surface-card");
+        });
+
+        if (active === "dual" && tabDual) {
+          tabDual.classList.add("bg-primary", "text-canvas", "font-bold", "shadow-[0_0_15px_rgba(220,149,255,0.4)]");
+          tabDual.classList.remove("text-text-secondary", "hover:text-white", "hover:bg-surface-card");
+          if (viewDual) viewDual.classList.remove("hidden");
+          if (viewSingle) viewSingle.classList.add("hidden");
+        } else if (active === "admin" && tabAdmin) {
+          tabAdmin.classList.add("bg-primary", "text-canvas", "font-bold", "shadow-[0_0_15px_rgba(220,149,255,0.4)]");
+          tabAdmin.classList.remove("text-text-secondary", "hover:text-white", "hover:bg-surface-card");
+          loadSingleView("admin");
+        } else if (active === "patient" && tabPatient) {
+          tabPatient.classList.add("bg-primary", "text-canvas", "font-bold", "shadow-[0_0_15px_rgba(220,149,255,0.4)]");
+          tabPatient.classList.remove("text-text-secondary", "hover:text-white", "hover:bg-surface-card");
+          loadSingleView("patient");
+        }
+      }
+
+      function loadSingleView(key) {
+        const data = viewsData[key];
+        if (!data || !singleImg) return;
+        singleImg.src = data.src;
+        singleImg.alt = data.alt;
+        singleImg.parentElement.setAttribute("data-cq-inspect", key);
+        if (singleTitle) singleTitle.textContent = data.title;
+        if (singleUrl) singleUrl.textContent = data.url;
+        if (singleBadge) singleBadge.textContent = data.badge;
+        if (singleDesc) singleDesc.textContent = data.desc;
+        if (viewDual) viewDual.classList.add("hidden");
+        if (viewSingle) viewSingle.classList.remove("hidden");
+      }
+
+      if (tabDual) tabDual.addEventListener("click", () => setActiveTab("dual"));
+      if (tabAdmin) tabAdmin.addEventListener("click", () => setActiveTab("admin"));
+      if (tabPatient) tabPatient.addEventListener("click", () => setActiveTab("patient"));
+
+      // Lightbox Modal Functionality
+      const modal = document.getElementById("cq-lightbox-modal");
+      const modalImg = document.getElementById("cq-modal-img");
+      const modalTitle = document.getElementById("cq-modal-title");
+      const modalUrl = document.getElementById("cq-modal-url");
+      const modalDesc = document.getElementById("cq-modal-desc");
+      const modalClose = document.getElementById("cq-modal-close");
+      const modalPrev = document.getElementById("cq-modal-prev");
+      const modalNext = document.getElementById("cq-modal-next");
+
+      const modalKeys = ["admin", "patient", "taskflow"];
+      let currentModalKey = "admin";
+
+      function openModal(key) {
+        if (!modal || !modalImg) return;
+        currentModalKey = viewsData[key] ? key : "admin";
+        const data = viewsData[currentModalKey];
+        modalImg.src = data.src;
+        modalImg.alt = data.alt;
+        if (modalTitle) modalTitle.textContent = data.title;
+        if (modalUrl) modalUrl.textContent = data.url;
+        if (modalDesc) modalDesc.textContent = data.desc;
+
+        modal.classList.remove("hidden");
+        document.body.classList.add("overflow-hidden");
+      }
+
+      function closeModal() {
+        if (!modal) return;
+        modal.classList.add("hidden");
+        document.body.classList.remove("overflow-hidden");
+      }
+
+      function toggleModalKey(direction = 1) {
+        let idx = modalKeys.indexOf(currentModalKey);
+        if (idx === -1) idx = 0;
+        idx = (idx + direction + modalKeys.length) % modalKeys.length;
+        openModal(modalKeys[idx]);
+      }
+
+      // Attach click listeners to all inspect triggers
+      document.querySelectorAll("[data-cq-inspect]").forEach(el => {
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          const target = el.getAttribute("data-cq-inspect");
+          openModal(target || "admin");
+        });
+      });
+
+      if (modalClose) modalClose.addEventListener("click", closeModal);
+      if (modalPrev) modalPrev.addEventListener("click", () => toggleModalKey(1));
+      if (modalNext) modalNext.addEventListener("click", () => toggleModalKey(1));
+
+      if (modal) {
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal || e.target.classList.contains("modal-backdrop")) {
+            closeModal();
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (modal && !modal.classList.contains("hidden")) {
+          if (e.key === "Escape") closeModal();
+          if (e.key === "ArrowLeft") toggleModalKey(-1);
+          if (e.key === "ArrowRight") toggleModalKey(1);
+        }
+      });
+    }
+
+    initCareQueueShowcase();
   });
 }
